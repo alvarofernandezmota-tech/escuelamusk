@@ -14,7 +14,7 @@
 - ⏳ **Módulo 6:** Programando se aprende
 - ⏳ **Módulo 7:** Git & GitHub
 
----
+--
 
 ## 📚 Documentación
 
