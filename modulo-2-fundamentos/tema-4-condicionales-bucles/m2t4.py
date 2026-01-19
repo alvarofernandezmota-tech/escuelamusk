@@ -94,3 +94,55 @@ print("Nueva hora: {:02d}:{:02d}:{:02d}".format(h, m, s))
 
 x = float(input("introduce un numero x≥0:"))
 
+if x >= 0:
+    parte_entera_inferior = int(x) 
+    parte_entera_superior = int(x) + 1 if x % 1 != 0 else int(x)
+    redondeo = round(x) 
+    print(f"parte entera inferior: {parte_entera_inferior} parte entera superior: {parte_entera_superior} redondeo: {redondeo}")
+else:
+    print("El número no es válido, debe ser x≥0")
+
+
+#bucles
+
+
+#.1 Haz un programa que lea dos números a y b, y que escriba todos los números
+# enteros a y b. Debe cumplirse que a < b. En caso que a > b, escribe los número
+# de manera descendente.
+a = int(input("Introduce un número entero a: "))
+b = int(input("Introduce un número entero b: "))
+
+if a < b:
+    print(f"primer numero: {a} es menor que segundo numero: {b}")
+elif a > b:
+    print(f"primer numero: {a} es mayor que segundo numero: {b}")
+else: a == b
+print(f"primer numero: {a} es igual que segundo numero: {b}")
+
+#2. Haz un programa que lea una secuencia de 10 números y que escriba la media.
+suma = 0
+media = suma / 10
+for i in range(1,11):
+    numero = float(input("Introduce un número: "))
+    suma += numero
+media = suma / 10
+print(f"La media de los números es: {media}")
+
+#3. Haz un programa que dada una lista de naturales de tamaño n, indique la posición del
+# primer número par.
+
+n = int(input("Introduce el tamaño de la lista de números naturales: "))
+lista = []
+for i in range(n):
+    numero = int(input("Introduce un número natural: "))
+    lista.append(numero)    
+for i in range(n):
+    if lista[i] % 2 == 0:
+        print(f"El primer número par está en la posición: {i}")
+        break 
+
+# 4. Haz un programa que lea un número n y que escriba la “tabla de multiplicar” de n.
+n = int(input("Introduce un número para ver su tabla de multiplicar: "))
+for i in range(1, 11):
+    resultado = n * i
+    print(f"{n} x {i} = {resultado}")
