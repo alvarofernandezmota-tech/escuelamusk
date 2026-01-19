@@ -146,3 +146,53 @@ n = int(input("Introduce un número para ver su tabla de multiplicar: "))
 for i in range(1, 11):
     resultado = n * i
     print(f"{n} x {i} = {resultado}")
+
+#5. Haz un programa que lea un número y que lo escriba del revés.
+n = int(input("Introduce un número: "))
+temp = n
+invertido = 0
+while temp > 0:
+    digito = temp % 10 
+    invertido = invertido * 10 + digito 
+    temp //= 10
+print(f"El número al revés es: {invertido}")
+
+#6. Haz un programa que lea un número y que escriba el número de dígitos.
+n = int(input("Introduce un número: "))
+temp = n
+suma = 0
+while temp > 0:
+    digito = temp % 10
+    suma = suma + 1
+    temp //= 10
+print(f"El número de dígitos es: {suma}")
+#7. Haz un programa que diga si un natural n es capicua o no.
+n = int(input("Introduce un número natural: "))
+temp = n
+invertido = 0
+while temp > 0:
+    digito = temp % 10
+    invertido = invertido * 10 + digito
+    temp = temp // 10
+if n == invertido:
+    print(f"El número {n} es capicua")
+else:
+    print(f"El número {n} no es capicua")
+#8. haz un programa que dada una secuencia de años acabada en 0, diga cuqntos hay del diglo 20.
+
+
+
+#9. Haz un programa que reciba una secuencia de naturales de tamaño n y nos devuelva
+#  cuál es el primer natural que tiene un valor inferior al primer natural leído.
+
+
+
+#10. Haz un programa que cuente cuántos valores hay en una secuencia de enteros acabada en 0.
+#11. Haz un programa que devuelva el máximo de una secuencia de temperaturas acabada en 1000.
+#12. Haz un programa que dada una secuencia de valores acabada en 0 compruebe que ningún valor supera 50.
+#13. Haz un programa que dada una secuencia de valores acabada en 0 compruebe que ningún valor supera 50 y que no hay más de tres que superen 40.
+#14. Haz un programa que dada una secuencia de valores acabada en 0 diga si hay más positivos o negativos.
+#15. Haz un programa que dada una secuencia de valores enteros acabada en 0 diga cuál es el número que hay antes de primer negativo encontrado.
+#16. Haz un programa que dada una secuencia de valores enteros acabada en 0 diga cuántos son múltiples del primero.
+#17. Haz un programa que lea varias descripciones de rectángulos y de círculos, y que para cada una escriba el área correspondiente. La entrada empieza con un número n, seguido de n descripciones. Si es de un rectángulo, se tiene la palabra “rectángulo” seguida de dos reales estrictamente positivos que indican la longitud y la anchura. Si es de un círculo, se tiene la palabra “círculo” seguida de un real estrictamente positivo que indica el radio.
+#18. Haz un programa que lea un natural n, y que escriba el resultado de la suma siguiente: 1^2 + 2^2 + … + (n−1)^2 + n^2 y el aspecto de la secuencia. 
