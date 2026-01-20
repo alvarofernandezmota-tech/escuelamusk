@@ -1093,57 +1093,335 @@ else:
     print(f"El mayor múltiplo de {n} entre {inicio} y {fin} es {mayor}")
 
 
-"""
+    
+
+
+# EJERCICIO: Análisis de números en un rango
+#
+# Pide dos números (inicio y fin) y haz lo siguiente para todos los números del rango:
+#
+# 1. CONTAR PRIMOS
+#    Cuenta cuántos números son primos (solo divisibles por 1 y por sí mismo)
+#
+# 2. ENCONTRAR EL NÚMERO IMPAR MÁS GRANDE
+#    De todos los impares del rango, guarda el mayor
+#
+# 3. ENCONTRAR EL NÚMERO PAR MÁS PEQUEÑO
+#    De todos los pares del rango, guarda el menor
+#
+# 4. SUMAR NÚMEROS CON MÁS DÍGITOS IMPARES QUE PARES
+#    Ejemplo: 135 → dígitos 1, 3, 5 (3 impares, 0 pares) → SÍ suma
+#    Ejemplo: 246 → dígitos 2, 4, 6 (0 impares, 3 pares) → NO suma
+#
+# SALIDA ESPERADA:
+# - Total de números primos encontrados
+# - Número IMPAR más grande (o mensaje si no hay)
+# - Número PAR más pequeño (o mensaje si no hay)
+# - Suma de números con más dígitos impares que pares
+#
+# EJEMPLO:
+# Entrada: inicio = 5, fin = 20
+# Salida:
+#   Total de primos: 6
+#   Número IMPAR más grande: 19
+#   Número PAR más pequeño: 6
+#   Suma de números con más impares: 102
+#
+# ¡EMPIEZA AQUÍ! 👇
+inicio = int(input("Inicio: "))
+fin = int(input("Fin: "))
+contador_primos = 0
+menor_par = None
+mayor_impar = -1
+suma_mas_impares = 0
+for numero in range(inicio, fin + 1):
+    es_primo = True
+    if numero < 2:
+        es_primo = False
+    else:
+        divisor = 2
+        while divisor < numero:
+            if numero % divisor == 0:
+                es_primo = False
+                break
+            divisor = divisor + 1
+    if es_primo:
+        contador_primos = contador_primos + 1
+    if numero % 2 == 0:
+        if menor_par is None or numero < menor_par:
+            menor_par = numero
+    if numero % 2 != 0:
+        if numero > mayor_impar:
+            mayor_impar = numero
+    temp = numero
+    contador_pares = 0
+    contador_impares = 0
+    while temp > 0:
+        digito = temp % 10
+        if digito % 2 == 0:
+            contador_pares = contador_pares + 1
+        else:
+            contador_impares = contador_impares + 1
+        temp = temp // 10
+    if contador_impares > contador_pares:
+        suma_mas_impares = suma_mas_impares + numero
+if contador_primos == 0:
+    print("No se encontraron números primos.")
+else:
+    print(f"Total de números primos: {contador_primos}")
+if mayor_impar == -1:
+    print("No hay números impares en el rango.")
+else:
+    print(f"Número IMPAR más grande: {mayor_impar}")
+if menor_par is None:
+    print("No hay números pares en el rango.")
+else:
+    print(f"Número PAR más pequeño: {menor_par}")
+if suma_mas_impares == 0:
+    print("No hay números con más dígitos impares que pares.")
+else:
+    print(f"Suma de números con más dígitos impares que pares: {suma_mas_impares}")
+
+    
+
+
+
+
+# EJERCICIO: Análisis de números capicúas y dígitos
+#
+# Pide dos números (inicio y fin) y haz lo siguiente para todos los números del rango:
+#
+# 1. CONTAR CAPICÚAS
+#    Cuenta cuántos números son capicúas (se leen igual al derecho y al revés)
+#    Ejemplos: 121, 545, 7
+#
+# 2. ENCONTRAR EL NÚMERO PAR MÁS GRANDE
+#    De todos los números PARES del rango, guarda el más grande
+#    Ejemplo: En 10-25, los pares son 10,12,14,16,18,20,22,24 → el mayor es 24
+#
+# 3. ENCONTRAR EL NÚMERO IMPAR MÁS PEQUEÑO
+#    De todos los números IMPARES del rango, guarda el más pequeño
+#    Ejemplo: En 10-25, los impares son 11,13,15,17,19,21,23,25 → el menor es 11
+#
+# 4. SUMAR NÚMEROS CON MÁS DÍGITOS PARES QUE IMPARES
+#    Para cada número, cuenta cuántos dígitos pares e impares tiene
+#    Si tiene MÁS dígitos pares que impares, súmalo
+#    Ejemplos:
+#    - 24: dígitos 2 (par), 4 (par) → 2 pares, 0 impares → 2 > 0 → SÍ suma 24
+#    - 23: dígitos 2 (par), 3 (impar) → 1 par, 1 impar → 1 NO > 1 → NO suma
+#    - 222: dígitos 2,2,2 (todos pares) → 3 pares, 0 impares → 3 > 0 → SÍ suma 222
+#
+# SALIDA ESPERADA:
+# - Total de capicúas encontrados
+# - Número PAR más grande (o mensaje si no hay)
+# - Número IMPAR más pequeño (o mensaje si no hay)
+# - Suma de números con más dígitos pares que impares
+#
+# EJEMPLO:
+# Entrada: inicio = 10, fin = 25
+# Salida:
+#   Total de capicúas: 2
+#   Número PAR más grande: 24
+#   Número IMPAR más pequeño: 11
+#   Suma de números con más pares: 46
+#
+# Explicación del ejemplo:
+# - Capicúas: 11, 22 → 2 capicúas
+# - Pares: 10,12,14,16,18,20,22,24 → mayor: 24
+# - Impares: 11,13,15,17,19,21,23,25 → menor: 11
+# - Más pares que impares: 22 (2 pares, 0 impares) + 24 (2 pares, 0 impares) = 46
+#
+# ¡EMPIEZA AQUÍ! 👇
 
 inicio = int(input("Inicio: "))
 fin = int(input("Fin: "))
-suma_capicuas = 0
-menor_impar = 10
+contador_capicuas = 0
 mayor_par = -1
-suma_digitos_mas_pares_que_impares = 0
-for numero in range(inicio,fin + 1):
+menor_impar = None
+suma_mas_pares = 0
+for numero in range(inicio, fin + 1):
     temp = numero
     invertido = 0
     while temp > 0:
         digito = temp % 10
         invertido = invertido * 10 + digito
         temp = temp // 10
-if invertido == numero:
-    suma_capicuas = suma_capicuas + 1
-    temp = numero
-    while temp > 0:
-        digito = temp % 10
-        if digito % 2 == 0:
-            if digito > mayor_par:
-                mayor_par = digito
-        temp = temp // 10
-    while temp > 0:
-        digito = temp % 10
-        if digito % 2 !=0:
-            if digito < menor_impar:
-                menor_impar = digito
-        temp = temp // 10
+    if numero == invertido:
+            contador_capicuas = contador_capicuas + 1
+    if numero % 2 == 0:
+        if numero > mayor_par:
+            mayor_par = numero
+    if numero % 2 != 0:
+        if menor_impar is None or numero < menor_impar:
+            menor_impar = numero
     temp = numero
     contador_pares = 0  
     contador_impares = 0
     while temp > 0:
         digito = temp % 10
-        if digito % 2 == 0
+        if digito % 2 == 0:
             contador_pares = contador_pares + 1
-        if digito % 2 != 0
+        else:
             contador_impares = contador_impares + 1
         temp = temp // 10
-        if contador_pares > contador_impares:
-            suma_digitos_mas_pares_que_impares = suma_digitos_mas_pares_que_impares + numero
-print(f"Suma de capicúas: {suma_capicuas}")
-if mayor_par != -1:
-    print(f"Mayor dígito par: {mayor_par}")
+    if contador_pares > contador_impares:
+        suma_mas_pares = suma_mas_pares + numero
+if contador_capicuas == 0:
+    print("No se encontraron números capicúas.")
 else:
-    print("No hay dígitos pares")
-if menor_impar != 10:
-    print(f"Menor dígito impar: {menor_impar}")
+    print(f"Total de números capicúas: {contador_capicuas}")    
+if mayor_par == -1: 
+    print("No hay números pares en el rango.")
+else:   
+    print(f"Número PAR más grande: {mayor_par}")
+if menor_impar is None:
+    print("No hay números impares en el rango.")
+else:                   
+    print(f"Número IMPAR más pequeño: {menor_impar}")
+if suma_mas_pares == 0:
+    print("No hay números con más dígitos pares que impares.")
 else:
-    print("No hay dígitos impares")
-print(f"Suma de números con más dígitos pares que impares: {suma_digitos_mas_pares_que_impares}")
+    print(f"Suma de números con más dígitos pares que impares: {suma_mas_pares}")
 
 
+    
+
+
+
+# EJERCICIO: Análisis avanzado de números
+#
+# Pide dos números (inicio y fin) y haz lo siguiente para todos los números del rango:
+#
+# 1. CONTAR NÚMEROS PERFECTOS
+#    Un número perfecto es aquel cuya suma de divisores (sin incluirlo a él mismo) es igual al número
+#    Ejemplo: 6 → divisores: 1, 2, 3 → suma: 1+2+3 = 6 ✅ (es perfecto)
+#    Ejemplo: 28 → divisores: 1, 2, 4, 7, 14 → suma: 1+2+4+7+14 = 28 ✅ (es perfecto)
+#    Ejemplo: 8 → divisores: 1, 2, 4 → suma: 1+2+4 = 7 ≠ 8 ❌ (no es perfecto)
+#
+# 2. ENCONTRAR EL NÚMERO CON MÁS DÍGITOS
+#    De todos los números del rango, encuentra el que tenga más dígitos
+#    Si hay empate, quédate con el último encontrado
+#    Ejemplo: En rango 5-150, el número 100 tiene 3 dígitos, 150 tiene 3 dígitos → guardar 150
+#
+# 3. SUMAR LOS NÚMEROS CUYA SUMA DE DÍGITOS SEA PAR
+#    Para cada número, suma sus dígitos. Si la suma es par, suma el número al acumulador
+#    Ejemplos:
+#    - 23: suma de dígitos = 2+3 = 5 (impar) → NO suma
+#    - 24: suma de dígitos = 2+4 = 6 (par) → SÍ suma 24
+#    - 123: suma de dígitos = 1+2+3 = 6 (par) → SÍ suma 123
+#
+# 4. CONTAR NÚMEROS ARMSTRONG
+#    Un número Armstrong es aquel donde la suma de sus dígitos elevados a la potencia 
+#    del número de dígitos es igual al número original
+#    Ejemplos:
+#    - 153 (3 dígitos): 1³ + 5³ + 3³ = 1 + 125 + 27 = 153 ✅ (es Armstrong)
+#    - 9 (1 dígito): 9¹ = 9 ✅ (es Armstrong)
+#    - 370 (3 dígitos): 3³ + 7³ + 0³ = 27 + 343 + 0 = 370 ✅ (es Armstrong)
+#
+# SALIDA ESPERADA:
+# - Total de números perfectos
+# - Número con más dígitos (o mensaje si no hay)
+# - Suma de números cuya suma de dígitos es par
+# - Total de números Armstrong
+#
+# EJEMPLO:
+# Entrada: inicio = 1, fin = 30
+# Salida:
+#   Total de números perfectos: 2
+#   Número con más dígitos: 30
+#   Suma de números con suma de dígitos par: 165
+#   Total de números Armstrong: 13
+#
+# PISTAS:
+# - Para números perfectos: necesitas un while para encontrar divisores
+# - Para contar dígitos: usa un while similar al de invertir
+# - Para elevar a potencia: multiplica el número por sí mismo n veces
+# - Todos los números de 1 dígito (1-9) son Armstrong
+#
+# ¡EMPIEZA AQUÍ! 👇
+
+inicio = int(input("Inicio: "))
+fin = int(input("Fin: "))
+
+contador_perfectos = 0
+numero_mas_digitos = -1
+max_digitos = 0
+suma_digitos_par = 0
+contador_armstrong = 0
+
+for numero in range(inicio, fin + 1):
+    
+    # 1. Comprobar si es perfecto
+    suma_divisores = 0
+    divisor = 1
+    while divisor < numero:
+        if numero % divisor == 0:
+            suma_divisores = suma_divisores + divisor
+        divisor = divisor + 1
+    
+    if suma_divisores == numero and numero != 0:
+        contador_perfectos = contador_perfectos + 1
+    
+    # 2. Contar dígitos y actualizar máximo
+    temp = numero
+    contador_digitos = 0
+    while temp > 0:
+        contador_digitos = contador_digitos + 1
+        temp = temp // 10
+    
+    if contador_digitos > max_digitos:
+        max_digitos = contador_digitos
+        numero_mas_digitos = numero
+    
+    # 3. Sumar dígitos y comprobar si es par
+    temp = numero
+    suma_digitos = 0
+    while temp > 0:
+        digito = temp % 10
+        suma_digitos = suma_digitos + digito
+        temp = temp // 10
+    
+    if suma_digitos % 2 == 0:
+        suma_digitos_par = suma_digitos_par + numero
+    
+    # 4. Comprobar si es Armstrong
+    temp = numero
+    suma_armstrong = 0
+    while temp > 0:
+        digito = temp % 10
+        
+        # Elevar digito a la potencia contador_digitos
+        potencia = 1
+        contador = 0
+        while contador < contador_digitos:
+            potencia = potencia * digito
+            contador = contador + 1
+        
+        suma_armstrong = suma_armstrong + potencia
+        temp = temp // 10
+    
+    if suma_armstrong == numero:
+        contador_armstrong = contador_armstrong + 1
+
+# Mostrar resultados
+if contador_perfectos == 0:
+    print("No se encontraron números perfectos.")
+else:
+    print(f"Total de números perfectos: {contador_perfectos}")
+
+if numero_mas_digitos == -1:
+    print("No hay números en el rango.")
+else:
+    print(f"Número con más dígitos: {numero_mas_digitos}")
+
+if suma_digitos_par == 0:
+    print("No hay números cuya suma de dígitos sea par.")
+else:
+    print(f"Suma de números cuya suma de dígitos es par: {suma_digitos_par}")
+
+if contador_armstrong == 0:
+    print("No se encontraron números Armstrong.")
+else:
+    print(f"Total de números Armstrong: {contador_armstrong}")
+    
+"""

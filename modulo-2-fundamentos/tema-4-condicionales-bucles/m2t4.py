@@ -179,20 +179,112 @@ if n == invertido:
 else:
     print(f"El número {n} no es capicua")
 #8. haz un programa que dada una secuencia de años acabada en 0, diga cuqntos hay del diglo 20.
-
-
+contador = 0
+año = int(input("Introduce un año (0 para terminar): "))
+while año != 0:
+    if 1900 < año <= 2000:
+        contador = contador + 1
+    año = int(input("Introduce un año (0 para terminar): "))
+print(f"Hay {contador} años del siglo 20")
 
 #9. Haz un programa que reciba una secuencia de naturales de tamaño n y nos devuelva
 #  cuál es el primer natural que tiene un valor inferior al primer natural leído.
-
-
-
+n = int(input("introduce el tamaño de la secuencia de números naturales: "))
+primero = int(input("Introduce el primer natural: "))
+secuencia = []
+for i in range(1, n):
+    numero = int(input("Introduce un número natural: "))
+    secuencia.append(numero)
+for numero in secuencia:
+    if numero < primero:
+        print(f"El primer natural inferior al primero leído ({primero}) es: {numero}")
+        break
+else:
+        print("No hay ningún natural inferior al primero leído.")
 #10. Haz un programa que cuente cuántos valores hay en una secuencia de enteros acabada en 0.
+contador = 0
+numero = int(input("Introduce un número entero (0 para terminar): "))
+while numero != 0:
+    contador = contador + 1
+    numero = int(input("Introduce un número entero (0 para terminar): "))
+print(f"Hay {contador} valores en la secuencia.")
 #11. Haz un programa que devuelva el máximo de una secuencia de temperaturas acabada en 1000.
+numero = float(input("Introduce una temperatura (1000 para terminar): "))
+maximo = numero
+while numero != 1000:
+    if numero > maximo:
+        maximo = numero
+    numero = float(input("Introduce una temperatura (1000 para terminar): "))   
+print(f"La temperatura máxima es: {maximo}")
 #12. Haz un programa que dada una secuencia de valores acabada en 0 compruebe que ningún valor supera 50.
-#13. Haz un programa que dada una secuencia de valores acabada en 0 compruebe que ningún valor supera 50 y que no hay más de tres que superen 40.
+numero = float(input("Introduce un número (0 para terminar): "))
+supera_50 = False
+while numero != 0:
+    if numero > 50:
+        supera_50 = True
+        break
+    numero = float(input("Introduce un número (0 para terminar): "))
+if supera_50 == False:
+    print("Ningún valor supera 50.")
+#13. Haz un programa que dada una secuencia de valores acabada en 0 compruebe que ningún valor
+#supera 50 y que no hay más de tres que superen 40.
+numero = float(input("Introduce un número (0 para terminar): "))
+contador_supera_cuarenta = 0
+supera_50 = False
+while numero != 0:
+    if numero > 50:
+        supera_50 = True
+        break
+    if numero > 40:
+        contador_supera_cuarenta = contador_supera_cuarenta + 1
+        if contador_supera_cuarenta > 3:
+            break
+    numero = float(input("Introduce un número (0 para terminar): "))
+if supera_50 == True:
+    print("Hay un valor que supera 50.")
+elif contador_supera_cuarenta > 3:
+    print("Hay más de tres valores que superan 40.")
+else:
+    print("Ningún valor supera 50 y no hay más de tres que superen 40.")
 #14. Haz un programa que dada una secuencia de valores acabada en 0 diga si hay más positivos o negativos.
-#15. Haz un programa que dada una secuencia de valores enteros acabada en 0 diga cuál es el número que hay antes de primer negativo encontrado.
+numero = float(input("Introduce un número (0 para terminar): "))
+contador_positivos = 0
+contador_negativos = 0
+while numero != 0:
+    if numero > 0:
+        contador_positivos += 1
+    elif numero < 0:
+        contador_negativos += 1
+    numero = float(input("Introduce un número (0 para terminar): "))
+if contador_positivos > contador_negativos:
+    print("Hay más positivos.")
+elif contador_negativos > contador_positivos:
+    print("Hay más negativos.")
+#15. Haz un programa que dada una secuencia de valores enteros acabada en 0 diga cuál es el número que hay antes
+#de primer negativo encontrado.
+numero = int(input("Introduce un número entero (0 para terminar): "))
+anterior = None
+while numero != 0:
+    if numero < 0:
+        break
+    anterior = numero
+    numero = int(input("Introduce un número entero (0 para terminar): "))
+if numero < 0:
+    if anterior is not None:
+        print(f"El número antes del primer negativo es: {anterior}")
+    elif anterior is None:
+        print("No hay ningún número antes del primer negativo.")
+else:
+    print("No se ha introducido ningún numero negativo.")
 #16. Haz un programa que dada una secuencia de valores enteros acabada en 0 diga cuántos son múltiples del primero.
+numero = int(input("Introduce un número entero (0 para terminar): "))
+primero = int(input("Introduce el primer número entero de la secuencia: "))
+contador_multiplos = 0
+while numero != 0:
+    if numero % primero == 0:
+        contador_multiplos += 1
+    numero = int(input("Introduce un número entero (0 para terminar): "))
+print(f"Hay {contador_multiplos} números que son múltiplos del primero ({primero}).")
+
 #17. Haz un programa que lea varias descripciones de rectángulos y de círculos, y que para cada una escriba el área correspondiente. La entrada empieza con un número n, seguido de n descripciones. Si es de un rectángulo, se tiene la palabra “rectángulo” seguida de dos reales estrictamente positivos que indican la longitud y la anchura. Si es de un círculo, se tiene la palabra “círculo” seguida de un real estrictamente positivo que indica el radio.
 #18. Haz un programa que lea un natural n, y que escriba el resultado de la suma siguiente: 1^2 + 2^2 + … + (n−1)^2 + n^2 y el aspecto de la secuencia. 
