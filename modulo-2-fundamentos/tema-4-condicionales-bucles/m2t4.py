@@ -286,5 +286,32 @@ while numero != 0:
     numero = int(input("Introduce un número entero (0 para terminar): "))
 print(f"Hay {contador_multiplos} números que son múltiplos del primero ({primero}).")
 
-#17. Haz un programa que lea varias descripciones de rectángulos y de círculos, y que para cada una escriba el área correspondiente. La entrada empieza con un número n, seguido de n descripciones. Si es de un rectángulo, se tiene la palabra “rectángulo” seguida de dos reales estrictamente positivos que indican la longitud y la anchura. Si es de un círculo, se tiene la palabra “círculo” seguida de un real estrictamente positivo que indica el radio.
+#17. Haz un programa que lea varias descripciones de rectángulos y de círculos,
+#  y que para cada una escriba el área correspondiente.
+#  La entrada empieza con un número n, seguido de n descripciones.
+#  Si es de un rectángulo, se tiene la palabra “rectángulo” seguida de dos
+#  reales estrictamente positivos que indican la longitud y la anchura.
+#  Si es de un círculo, se tiene la palabra “círculo” seguida de un real estrictamente positivo
+#  que indica el radio.
+import math
+n = int(input("Introduce el número de figuras: "))
+for i in range(n):
+    tipo_figuras = input("Introduce el tipo de figura (rectángulo/círculo): ")
+    if tipo_figuras == "rectangulo":
+        longitud = float(input("introduce la longitud del rectángulo: "))
+        anchura = float(input("introduce la anchura del rectángulo: "))
+        area = longitud * anchura
+        print(f"El área del rectángulo es: {area}")
+    elif tipo_figuras == "circulo":
+        radio = float(input("Introduce el radio del círculo: "))
+        area = math.pi * radio ** 2
+        print(f"El área del círculo es: {area}")
+    else:
+        print("Tipo de figura no válido.")
+
 #18. Haz un programa que lea un natural n, y que escriba el resultado de la suma siguiente: 1^2 + 2^2 + … + (n−1)^2 + n^2 y el aspecto de la secuencia. 
+n = int(input("Introduce un número natural n: "))
+suma = 0
+for i in range(1, n + 1):
+    suma += i ** 2
+print(f"La suma de los cuadrados desde 1 hasta {n} es: {suma}")
