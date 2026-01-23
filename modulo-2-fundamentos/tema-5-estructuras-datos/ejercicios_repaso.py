@@ -58,11 +58,8 @@ print("\n--- Ejercicio 4: While con índice ---")
 colores = ["rojo", "verde", "azul", "amarillo"]
 i = 0
 while i < len(colores):
-    print(f"{i}:{colores[i]}")
-    i += 1
-
-
-
+    print(f"{i}: {colores[i]}")
+    i+=1
 
 
 
@@ -79,14 +76,15 @@ while i < len(colores):
 print("\n--- Ejercicio 5: Buscar con while ---")
 numeros = [3, 7, 12, 18, 25, 30]
 buscar = 18
+i = 0
 encontarado = False
 while i < len(numeros) and encontarado == False:
     if numeros[i] == buscar:
-        print(f"encontrado{buscar} em posicion:{i}")
+        print(f"{buscar} estaba en la posicion {i}")
+        encontarado = True
     i += 1
 if encontarado == False:
-    print(f"no encontrado {buscar}")
-
+    print(f"no encontrado {buscar} en {numeros}")
 
 
 
@@ -110,6 +108,25 @@ print("=" * 50)
 # Ejercicio 6: Crear nueva lista con transformación
 print("\n--- Ejercicio 6: Crear lista de dobles ---")
 originales = [1, 2, 3, 4, 5]
+dobles = []
+for numeros in originales:
+    dobles.append(numeros *2)
+print(f" los orginales son: {originales}")
+print(f" los dobles son: {dobles}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # TODO: Crea una nueva lista con el doble de cada número
 # dobles = []
@@ -124,6 +141,18 @@ print("\n--- Ejercicio 7: Filtrar números pares ---")
 numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 # TODO: Crea lista solo con números pares
+pares = []
+for numero in numeros:
+    if numero % 2 == 0:
+        pares.append(numero)
+print(f"originales:{numero}")
+print(f"pares:{pares}")
+
+        
+
+
+
+
 # pares = []
 # for num in numeros:
 #     if num % 2 == 0:
@@ -138,6 +167,18 @@ print("=" * 50)
 # Ejercicio 8: Recorrer tupla
 print("\n--- Ejercicio 8: For con tupla ---")
 coordenadas = (10, 20, 30, 40)
+
+
+
+
+
+
+
+
+
+
+
+
 
 # TODO: Recorre la tupla y muestra cada elemento
 # for coord in coordenadas:
