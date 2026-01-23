@@ -1,18 +1,25 @@
-colores = ["rojo", "verde", "azul", "amarillo", "naranja"]
-print(colores[1:-1])  # Imprime todos los colores excepto el primero y el último
-print(len(colores))  # Imprime la longitud de la lista
-print("----------------------")  # Imprime una línea de separación
-colores[0] = "rosa"  # Cambia el primer color a "rosa"
-print(colores)  # Imprime la lista actualizada
-colores.append("morado")  # Añade "morado" al final de la lista
-print(colores)  # Imprime la lista actualizada
-ordernado = sorted(colores)  # Crea una nueva lista ordenada
-print(ordernado)  # Imprime la lista ordenada
-print(colores)  # Imprime la lista original sin cambios
-colores.remove("verde")  # Elimina "verde" de la lista
-colores[0] = "morado"
-print(colores)  # Imprime la lista actualizada
-print("----------------------")  # Imprime una línea de separación
-existe = "verde" in colores  # Verifica si "verde" está en la lista
-print(existe)    # Imprime el resultado de la verificación
-print("----------------------")  # Imprime una línea de separación
+
+#1. declara una lista vacia
+lista = []
+
+#2. declara una lista con mas de 7 elementos
+lista =[1,2,3,4,5,6,7,8]
+#3. encunetra la longitud de tu lista
+print(len(lista))
+#4.corta tu lista y muestra los dos primeros elementos y los dos ultimos
+primeros_numeros = lista[0:2]
+ultimos_numeros = lista[-3:-1] 
+print(primeros_numeros)
+print(ultimos_numeros)
+
+#5. muetsra el primero el del medio y el ultimo
+print(lista[0])
+print(lista[-1])
+medio = int(len(lista)//2)
+print(medio)
+#6. escribe un programa que sume todos los elementos de una lista  de nuemros enteros
+lista_num = [4,6,7,6,8,0,5,6]
+suma = None
+for numeros in lista_num:
+    suma += numeros
+print(suma)
