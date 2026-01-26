@@ -167,6 +167,9 @@ print("=" * 50)
 # Ejercicio 8: Recorrer tupla
 print("\n--- Ejercicio 8: For con tupla ---")
 coordenadas = (10, 20, 30, 40)
+for coord in coordenadas:
+    print(f"cordaenadas: {coord}")
+
 
 
 
@@ -188,6 +191,25 @@ coordenadas = (10, 20, 30, 40)
 # Ejercicio 9: Convertir tupla a lista, modificar y volver
 print("\n--- Ejercicio 9: Tupla → Lista → Tupla ---")
 dias_semana = ("lunes", "martes", "miercoles", "jueves", "viernes")
+semana_list = list(dias_semana)
+semana_list.append("sabado")
+semana_list.append("domingo")
+dias_completos = tuple(semana_list)
+print(f"la tupla original es {dias_semana}")
+print(f"la tupla corregida completa es {dias_completos}")
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # TODO: Convierte a lista, añade "sábado" y "domingo", vuelve a tupla
 # dias_lista = list(dias_semana)
@@ -209,6 +231,10 @@ matriz = [
     [4, 5, 6],
     [7, 8, 9]
 ]
+for fila in matriz:
+    for elemento in fila:
+        print(elemento, end=" ")
+    print()
 
 # TODO: Usa bucles anidados para mostrar cada elemento
 # for fila in matriz:
@@ -225,6 +251,26 @@ print("=" * 50)
 print("\n--- Ejercicio 11: Contar repeticiones ---")
 letras = ["a", "b", "a", "c", "a", "b", "d"]
 letra_buscar = "a"
+contador = 0
+for letra in letras:
+    if letra == letra_buscar:
+        contador += 1
+print(f"hay {contador} de {letra_buscar} en {letras}")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # TODO: Cuenta cuántas veces aparece la letra usando for
 # contador = 0
