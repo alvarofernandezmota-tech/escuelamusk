@@ -68,3 +68,20 @@
 - Configuración Git: 30 min
 - Ejercicios Listas: 1h 18min
 - **Total hasta ahora: 1h 48min**
+### 🕖 19:18 - 20:45 | Ejercicios de Listas (Bloques 2-4)
+- ✅ Ejercicio 5: Media de números positivos
+- ✅ Ejercicio 6: Concatenar dos listas
+- ✅ Ejercicio 7: Precio menor y mayor
+- ✅ Ejercicio 8: Lista de asignaturas
+- ✅ Ejercicio 9: Números en orden inverso con comas
+- ✅ Ejercicio 10: Alternar elementos de dos listas
+
+---
+
+## 📊 Progreso actualizado:
+- Listas: 🔄 10/13 ejercicios (77%)
+- Tuplas: ⏳ 0/10 ejercicios (0%)
+
+---
+
+## ⏸️ DESCANSO - 20:45
