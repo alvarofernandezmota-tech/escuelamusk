@@ -321,3 +321,5 @@ entradas = [5, 10, 15, 0, 20, 25]  # 0 es centinela
 print("\n" + "=" * 50)
 print("🎉 ¡Práctica completada!")
 print("=" * 50)
+
+## ejercicios clase diccionarios 

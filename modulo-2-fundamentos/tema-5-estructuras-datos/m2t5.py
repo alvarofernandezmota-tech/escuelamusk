@@ -1,10 +1,53 @@
 ## Strings
-##1. Haz un programa que lea una secuencia de caracteres acabada en punto y que escriba cuántas letras ‘a’ contiene.
+##1. Haz un programa que lea una secuencia de caracteres acabada en punto y que escriba
+#  cuántas letras ‘a’ contiene.
+texto = input("Introduce texto (termina con punto): ")
+contador = 0
+for caracter in texto:
+    if caracter == ".":
+        break
+    if caracter.lower() == "a":
+        contador += 1
+if contador > 0:
+    print(f"el texto contiene {contador} letras <a>.")
+else:
+    print(f"el texto no contiene letra <a>")
 ##2. Haz un programa que encuentre todas las apariciones de una subcadena en una cadena dada.
+texto = input("Introduce el texto completo: ")
+subcadena = input("Introduce la subcadena a buscar: ")
+posicion = 0
+apariciones = []
+while True:
+    posicion = texto.find(subcadena, posicion)
+    if posicion == -1:
+        break
+    apariciones.append(posicion)
+    posicion += 1
+
+print(f"La subcadena '{subcadena}' aparece en las posiciones: {apariciones}")
 ##3. Haz un programa que invierta una cadena dada.
+texto = input("introduce unn textp")
+texto_invertido = texto [::-1]
+print(f"Texto invertido: {texto_invertido}")
+
 ##4. Haz un programa que divida una cadena en guiones.
+texto = input("introduce unn textp")
+print(texto.split("-"))
 ##5. Haz un programa que añada una nueva cadena en medio de una cadena dada.
+texto = input("introduce unn textp")
+insertar = input("introduce lo qeu deseas insertar en mitad del texto ")
+mitad = len(texto) // 2
+resultado = texto[:mitad] + insertar + texto [mitad:]
+print(f"Resultado:{resultado}")
+
 ##6. Haz un programa que encuentre la última posición de una subcadena dada.
+texto = input("introduce unn textp")
+subcadena = input("Introduce la subcadena a buscar: ")
+posicion = texto.rfind(subcadena)
+if posicion != -1:
+    print(f"Última aparición de '{subcadena}' en posición: {posicion}")
+else:
+    print(f"No se encontró '{subcadena}'")
 ##7. Haz un programa que elimine cadenas vacías de una lista de cadenas.
 ##8. Haz un programa que elimine símbolos especiales / signos de puntuación de una cadena.
 ##9. Haz un programa que encuentre palabras con letras y números.
@@ -100,7 +143,7 @@ for asignatura in asignaturas:
 # separados por comas.
 numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 numeros.reverse()
-resulta = ""
+resultado = ""
 for i in range(len(numeros)):
     resultado += str(numeros[i])
     if i < len(numeros) -1:
@@ -122,22 +165,119 @@ resultado = []
 for i in range(n):
     resultado.append(lista1[i])
     resultado.append(lista2[i])
-print(f"Resultado: {resulta}")
+print(f"Resultado: {resultado}")
       
-##11. Haz un programa que itere ambas listas de tamaños n y m (siendo n y m números distintos )simultáneamente e imprima sus elementos.
-##12. Haz un programa que añada un nuevo elemento 60 a la lista [10, 50, 40, 20, 30] después de un elemento especificado por el usuario. Si el elemento introducido no está presente en la lista debe mostrar el mensaje: 'Elemento no presente en la lista'.
-##13. Haz un programa que elimine todas las apariciones de un elemento específico introducido por el usuario de la lista [10, 50, 40, 20, 60, 30].
+##11. Haz un programa que itere ambas listas de tamaños n y m (siendo n y m números distintos )
+# simultáneamente e imprima sus elementos.
+n = int(input("Tamaño de la lista1: "))
+m = int(input("Tamaño de la lista2: "))
+lista1 = []
+for i in range(n):
+    elemento = int(input(f"Elemento {i+1} de la lista1"))
+    lista1.append(elemento)
+lista2 = []
+for i in range(m):
+    elemento =int(input(f"elemento {i+1} de la lista2"))
+    lista2.append(elemento)
+tamaño_minimo = min(len(lista1), len(lista2))
+for i in range(tamaño_minimo):
+    print(f"{lista1[i]} - {lista2[i]}")
+##12. Haz un programa que añada un nuevo elemento 60 a la lista [10, 50, 40, 20, 30] después de
+#  un elemento especificado por el usuario. Si el elemento introducido no está presente en la lista
+#  debe mostrar el mensaje: 'Elemento no presente en la lista'.
+lista = [10, 50, 40, 20, 30]
+elemento_ref = int(input("¿Después de qué elemento quieres insertar 60?: "))
+valor = 60
+if elemento_ref in lista:
+    posicion = lista.index(elemento_ref)
+    lista.insert(posicion + 1, valor)
+    print(lista)
+else:
+    print(f"no se encontro {elemento_ref} en la lista")
+
+
+##13. Haz un programa que elimine todas las apariciones de un elemento específico introducido
+#  por el usuario de la lista [10, 50, 40, 20, 60, 30].
+numeros = [10, 50, 40, 20, 60, 30]
+numero = int(input("¿que numero desea borrar de la lista?: "))
+while numero in numeros:
+    numeros.remove(numero)
+print(numeros)
 ##Tuplas
 ##1. Haz una programa que invierta una tupla.
+tupla = (1, 2, 3)
+numeros = list(tupla)
+numeros.reverse()
+tupla_invertida = tuple(numeros)
+print(tupla_invertida)
 ##2. Haz un programa que acceda al valor 15 de la tupla.
+tupla = (10, 5, 15, 20, 8)
+posicion = tupla.index(15)
+print(f"El valor 15 está en la posición {posicion}")
+
 ##3. Haz un programa que declare una tupla con un solo elemento 10.
+tupla = (10,)
+print(tupla)
 ##4. Haz un programa que descomponga la tupla en 4 variables.
+tupla = (10, 5, 15, 20, 8)
+a, b, c, d, e = tupla
+print(f"Variables desempaquetadas: {a}, {b}, {c}, {d}, {e}")
+
 ##5. Haz un programa que intercambie dos tuplas en Python.
+tupla1 = (1, 2, 3)
+tupla2 = (10, 20, 30)
+tupla1, tupla2 = tupla2, tupla1
+print(f"tupla1: {tupla1}")
+print(f"tupla2: {tupla2}")
 ##6. Haz un programa que copie elementos específicos de una tupla a una nueva tupla.
+tupla_original = (10, 5, 15, 20, 8, 30, 25)
+tupla_nueva = []
+for elemento in tupla_original:
+    if elemento % 5 == 0:
+        tupla_nueva.append(elemento)
+tupla_nueva = tuple(tupla_nueva)
+print(f"Nueva tupla: {tupla_nueva}")
 ##7. Haz un programa que modifique una tupla.
+tupla_original = (10, 5, 15, 20, 8, 30, 25)
+tupla_original = list(tupla_original)
+tupla_original.append(10)
+tupla_original.append(100)
+tupla_modificada = tuple(tupla_original)
+print(f"La tupla modificada es: {tupla_modificada}")
 ##8. Ordena una tupla de tuplas por el 2º elemento.
+tupla_original = (10, 5, 15, 20, 8, 30, 25,13)
+print(tupla_original)
+print("\ntupla de tuplas")
+tupla_de_tuplas = (
+    (10, 5),
+    (15, 20),
+    (8, 30),
+    (25, 13)
+)
+print(tupla_de_tuplas)
+lista = list(tupla_de_tuplas)
+lista.sort(key=lambda x: x[1])
+tupla_ordenada = tuple(lista)
+print(f"\nTupla ordenada: {tupla_ordenada}")
 ##9. Haz un programa que cuente el número de apariciones del elemento 50 de una tupla.
+tupla = (10, 50, 15, 50, 20, 50, 30, 50)
+elemento_buscar = 50
+contador = tupla.count(elemento_buscar)
+print(f"{elemento_buscar} aparece {contador} veces en la tupla.")
+
 ##10. Haz un programa que compruebe si todos los elementos de la tupla son iguales.
+tupla = (5, 5, 5, 5, 5)
+primer_elemento = tupla[0]
+todos_iguales = True
+for elemento in tupla:
+    if elemento != primer_elemento:
+        todos_iguales = False
+        break
+if todos_iguales:
+    print("Todos los elementos son iguales")
+else:
+    print("Los elementos NO son todos iguales")
+
 #### Diccionarios
 ##1. Haz un programa que convierta dos listas en un diccionario.
 ##2. Haz un programa que fusione dos diccionarios de Python en uno solo.
