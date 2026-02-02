@@ -418,14 +418,112 @@ diccionario = {
 valor_minimo = min(diccionario.values())
 
 print(f"Eñl valor minimo del diccionario es {valor_minimo}")
+clave_minima = min(diccionario, key=diccionario.get)
+print(f"\n'{clave_minima}' tiene el valor mínimo: {valor_minimo}")
 ##10. Haz un programa que cambie el valor de una clave en un diccionario anidado.
+usuarios = {
+    'user001': {
+        'nombre': 'Ana',
+        'edad': 25,
+        'ciudad': 'Madrid'
+    },
+    'user002': {
+        'nombre': 'Juan',
+        'edad': 30,
+        'ciudad': 'Barcelona'
+    }
+}
+usuarios['user001']['edad'] = 26
+
 ## Sets
 ##1. Haz un programa que añada una lista de elementos a un conjunto.
+mi_set = set()
+lista = [1, 2, 3, 4, 5]
+for elemento in lista:
+    mi_set.add(elemento)
+print(mi_set)
+
 ##2. Haz un programa que devuelva un nuevo conjunto de elementos idénticos de dos conjuntos.
+conjunto1 = {1, 2, 3, 4, 5}
+conjunto2 = {4, 5, 6, 7, 8}
+comunes =set()
+for elemento in conjunto1:
+    if elemento in conjunto2:
+        comunes.add(elemento)
+print(comunes)
+
 ##3. Haz un programa que obtenga sólo elementos únicos de dos conjuntos.
-##4. Haz un programa que actualice el primer conjunto con elementos que no existen en el segundo conjunto.
+
+conjunto1 = {1, 2, 3, 4, 5}
+conjunto2 = {4, 5, 6, 7, 8}
+diferentes = set()
+for elemento in conjunto1:
+    if elemento not in conjunto2:
+        diferentes.add(elemento)
+for elemento in conjunto2:
+    if elemento not in conjunto1:
+        diferentes.add(elemento)
+print(f"Elementos unicos: {diferentes}")
+
+##4. Haz un programa que actualice el primer conjunto con elementos que 
+# no existen en el segundo conjunto.
+
+conjunto1 = {1, 2, 3, 4, 5}
+conjunto2 = {4, 5, 6, 7, 8}
+print(conjunto1, conjunto2)
+conjunto1 -= conjunto2
+print(conjunto1, conjunto2)
 ##5. Haz un programa que elimine elementos del conjunto a la vez.
+conjunto = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+eliminar = {2, 4, 6, 8, 10}
+
+conjunto -= eliminar
+
+print(conjunto)
+
 ##6. Haz un programa que devuelva un conjunto de elementos presentes en el conjunto A o B, pero no en ambos.
+
+conjunto_a = {1, 2, 3, 4, 5}
+conjunto_b = {4, 5, 6, 7, 8}
+
+resultado = conjunto_a ^ conjunto_b
+
+print(f"Elementos en A o B, pero no en ambos: {resultado}")
+
+
 ##7. Haz un programa que compruebe si dos conjuntos tienen algún elemento en común. En caso afirmativo, mostrar los elementos comunes.
-##8. Haz un programa que actualice el conjunto1 añadiendo elementos del conjunto2, excepto los elementos comunes.##9. Haz un programa que actualice el conjunto1 añadiendo elementos del conjunto2, excepto los elementos comunes.
-##9. Haz un programa que actualice el conjunto1 añadiendo elementos del conjunto2, excepto los elementos comunes.
+
+conjunto1 = {1, 2, 3, 4, 5}
+conjunto2 = {4, 5, 6, 7, 8}
+
+comunes = conjunto1 & conjunto2
+
+if comunes:
+    print(f"Sí hay elementos comunes: {comunes}")
+else:
+    print("No hay elementos comunes")
+
+
+##8. Haz un programa que actualice el conjunto1 añadiendo elementos del conjunto2, excepto los elementos comunes.
+
+conjunto1 = {1, 2, 3}
+conjunto2 = {3, 4, 5}
+
+print(f"conjunto1 antes: {conjunto1}")
+
+nuevos = conjunto2 - conjunto1
+conjunto1.update(nuevos)
+
+print(f"conjunto1 después: {conjunto1}")
+
+
+##9. Haz un programa que elimine elementos del conjunto1 que también están en el conjunto2.
+
+conjunto1 = {1, 2, 3, 4, 5}
+conjunto2 = {4, 5, 6, 7, 8}
+
+print(f"conjunto1 antes: {conjunto1}")
+
+conjunto1 -= conjunto2
+
+print(f"conjunto1 después: {conjunto1}")
