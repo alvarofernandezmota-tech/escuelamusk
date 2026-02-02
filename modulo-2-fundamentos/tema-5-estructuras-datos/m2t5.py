@@ -49,9 +49,47 @@ if posicion != -1:
 else:
     print(f"No se encontró '{subcadena}'")
 ##7. Haz un programa que elimine cadenas vacías de una lista de cadenas.
+lista_cadenas = ["hola", "", "mundo", "", "python", ""]
+lista_sin_vacias = []
+for cadena in lista_cadenas:
+    if cadena != "":
+        lista_sin_vacias.append(cadena)
+if lista_sin_vacias:
+    print(f"Lista sin cadenas vacías: {lista_sin_vacias}")
+else:
+    print(f"no hay cadenas vacias por tanto: {lista_cadenas} queda exactamente igual.")
 ##8. Haz un programa que elimine símbolos especiales / signos de puntuación de una cadena.
+
+texto = input("Introduce un texto con símbolos: ")
+texto_limpio = "".join([c for c in texto if c.isalnum() or c.isspace()])
+print(f"Texto sin símbolos: {texto_limpio}")
+
 ##9. Haz un programa que encuentre palabras con letras y números.
+texto = input("Introduce un texto: ")
+palabras = texto.split()
+palabras_mixtas = []
+for palabra in palabras:
+    tiene_letra = False
+    tiene_numero = False
+    for caracter in palabra:
+        if caracter.asalpha():
+            tiene_letra = True
+        if caracter in palabra:
+            tiene_numero = True
+    if tiene_letra and tiene_numero:
+        palabras_mixtas.append(palabra)
+print(f"Palabras con letras y números: {palabras_mixtas}")
+
 ##10. Haz un programa que sustituya cada símbolo especial por # en la siguiente cadena.
+texto = input("Introduce un texto con símbolos: ")
+texto_modificado = []
+for caracter in texto:
+    if caracter.isalnum() or caracter.isspace():
+        texto_modificado.append(caracter)
+    else:
+        texto_modificado.append("#")
+resultado = "".join(texto_modificado)
+print(f"Texto con # en lugar de símbolos: {resultado}")
 ##listas
 ##1. Haz un programa que lea una lista dado su tamaño e imprima el segundo elemento (si existe).
 n = int(input("tamañod e la lista: "))
