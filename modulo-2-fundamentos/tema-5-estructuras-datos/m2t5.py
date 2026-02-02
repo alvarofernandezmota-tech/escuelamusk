@@ -318,7 +318,13 @@ else:
 
 #### Diccionarios
 ##1. Haz un programa que convierta dos listas en un diccionario.
+keys = ["nombre", "edad", "ciudad"]
+values = ["Ana", 25, "Madrid"]
+dicionario = dict(zip(keys, values))
+print(dicionario)
+
 ##2. Haz un programa que fusione dos diccionarios de Python en uno solo.
+
 ##3. Haz un programa que imprima el valor de la clave 'history' del siguiente diccionario.
 ##4. Haz un programa que inicialice el diccionario con valores por defecto.
 ##5. Haz un programa que cree un diccionario extrayendo las claves de un diccionario dado.

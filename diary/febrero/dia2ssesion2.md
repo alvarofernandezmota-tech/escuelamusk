@@ -1,0 +1,1 @@
+esperando segunda sesion del dia 
