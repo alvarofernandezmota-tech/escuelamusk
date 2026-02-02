@@ -1,325 +1,251 @@
-# modulo-2-fundamentos/tema-5-estructuras-datos/listas-tuplas/practica_bucles_listas.py
+# 📝 EJERCICIOS DE REPASO - TEMA 5
+# Estructuras de Datos: Strings, Listas, Tuplas, Diccionarios y Sets
+# Escuela Musk - Módulo 2
+# Fecha: 02 Febrero 2026
 
 """
-🎯 PRÁCTICA INTEGRADA: Bucles + Listas + Tuplas
-Repaso de for/while aplicados a estructuras de datos
+ESTOS EJERCICIOS MEZCLAN TODOS LOS CONCEPTOS DEL TEMA 5:
+- Strings
+- Listas
+- Tuplas
+- Diccionarios
+- Sets
+
+Objetivo: Consolidar conocimientos antes de pasar a Funciones
 """
 
-print("=" * 50)
-print("NIVEL 1: FOR CON LISTAS - Recorrido básico")
-print("=" * 50)
+# =============================================================================
+# EJERCICIO 1: LISTA + DICCIONARIO
+# =============================================================================
+# Dada una lista de nombres, crea un diccionario que cuente cuántas veces
+# aparece cada nombre.
+#
+# Ejemplo:
+# nombres = ["Ana", "Juan", "Ana", "Pedro", "Juan", "Ana"]
+# Resultado: {'Ana': 3, 'Juan': 2, 'Pedro': 1}
 
-# Ejercicio 1: Recorrer lista y mostrar cada elemento
-print("\n--- Ejercicio 1: Imprimir elementos ---")
-frutas = ["manzana", "pera", "naranja", "plátano"]
-for fruta in  frutas:
-    print(f"fruta: {fruta}")
 
-# TODO: Recorre la lista con for y muestra cada fruta
-# for fruta in frutas:
-#     print(f"Fruta: {fruta}")
 
 
-# Ejercicio 2: Recorrer con índice usando range()
-print("\n--- Ejercicio 2: Recorrer con índice ---")
-numeros = [10, 20, 30, 40, 50]
-for i in range(len(numeros)):
-    print(f"posicion: {i} and numero {numeros[i]}")
-# TODO: Usa for i in range(len(numeros)) para mostrar índice y valor
-# for i in range(len(numeros)):
-#     print(f"Posición {i}: {numeros[i]}")
+# =============================================================================
+# EJERCICIO 2: STRING + LISTA
+# =============================================================================
+# Dada una frase, crea una lista con las palabras que tienen más de 5 letras.
+#
+# Ejemplo:
+# frase = "Python es un lenguaje de programación muy potente"
+# Resultado: ['Python', 'lenguaje', 'programación', 'potente']
 
 
-# Ejercicio 3: Sumar todos los elementos
-print("\n--- Ejercicio 3: Suma con for ---")
-valores = [5, 10, 15, 20, 25]
-suma = 0 
-for numeros in valores:
-    suma += numeros
-print(f"la suma total es : {suma}")
 
 
+# =============================================================================
+# EJERCICIO 3: SET + LISTA
+# =============================================================================
+# Dadas dos listas, encuentra:
+# a) Elementos comunes
+# b) Elementos únicos (que están solo en una lista)
+# c) Todos los elementos sin duplicados
+#
+# Ejemplo:
+# lista1 = [1, 2, 3, 4, 5]
+# lista2 = [4, 5, 6, 7, 8]
 
 
 
-# TODO: Suma todos los valores usando un bucle for
-# suma = 0
-# for valor in valores:
-#     suma += valor
-# print(f"Suma total: {suma}")
 
+# =============================================================================
+# EJERCICIO 4: DICCIONARIO + TUPLA
+# =============================================================================
+# Dado un diccionario de productos con sus precios, crea una tupla con
+# el producto más caro y el más barato.
+#
+# Ejemplo:
+# productos = {'manzana': 1.5, 'pan': 0.8, 'leche': 1.2, 'huevos': 2.5}
+# Resultado: ('huevos', 'pan')
 
-print("\n" + "=" * 50)
-print("NIVEL 2: WHILE CON LISTAS - Control manual")
-print("=" * 50)
 
-# Ejercicio 4: Recorrer lista con while
-print("\n--- Ejercicio 4: While con índice ---")
-colores = ["rojo", "verde", "azul", "amarillo"]
-i = 0
-while i < len(colores):
-    print(f"{i}: {colores[i]}")
-    i+=1
 
 
+# =============================================================================
+# EJERCICIO 5: LISTA + STRING
+# =============================================================================
+# Dada una lista de palabras, crea un string donde cada palabra esté separada
+# por un guion y todas estén en mayúsculas.
+#
+# Ejemplo:
+# palabras = ["hola", "mundo", "python"]
+# Resultado: "HOLA-MUNDO-PYTHON"
 
 
 
-# TODO: Usa while para recorrer la lista con índice
-# i = 0
-# while i < len(colores):
-#     print(f"{i}: {colores[i]}")
-#     i += 1
 
+# =============================================================================
+# EJERCICIO 6: DICCIONARIO ANIDADO
+# =============================================================================
+# Dado un diccionario de estudiantes con sus notas, calcula la media de
+# cada estudiante y crea un nuevo diccionario con las medias.
+#
+# Ejemplo:
+# estudiantes = {
+#     'Ana': [8, 7, 9],
+#     'Juan': [6, 7, 5],
+#     'Pedro': [9, 8, 10]
+# }
+# Resultado: {'Ana': 8.0, 'Juan': 6.0, 'Pedro': 9.0}
 
-# Ejercicio 5: While con centinela - Buscar elemento
-print("\n--- Ejercicio 5: Buscar con while ---")
-numeros = [3, 7, 12, 18, 25, 30]
-buscar = 18
-i = 0
-encontarado = False
-while i < len(numeros) and encontarado == False:
-    if numeros[i] == buscar:
-        print(f"{buscar} estaba en la posicion {i}")
-        encontarado = True
-    i += 1
-if encontarado == False:
-    print(f"no encontrado {buscar} en {numeros}")
 
 
 
+# =============================================================================
+# EJERCICIO 7: SET + STRING
+# =============================================================================
+# Dada una frase, encuentra todas las letras únicas (sin duplicados) que
+# aparecen en la frase. Ignora espacios y convierte todo a minúsculas.
+#
+# Ejemplo:
+# frase = "Hola Mundo"
+# Resultado: {'a', 'd', 'h', 'l', 'm', 'n', 'o', 'u'}
 
 
 
-# TODO: Busca el número usando while (detente cuando lo encuentres)
-# i = 0
-# encontrado = False
-# while i < len(numeros) and not encontrado:
-#     if numeros[i] == buscar:
-#         print(f"Encontrado {buscar} en posición {i}")
-#         encontrado = True
-#     i += 1
 
+# =============================================================================
+# EJERCICIO 8: LISTA + TUPLA + DICCIONARIO
+# =============================================================================
+# Dada una lista de tuplas (nombre, edad), crea un diccionario donde la
+# clave sea el nombre y el valor sea la edad. Luego, encuentra el nombre
+# de la persona más joven.
+#
+# Ejemplo:
+# personas = [("Ana", 25), ("Juan", 30), ("Pedro", 22)]
+# Diccionario: {'Ana': 25, 'Juan': 30, 'Pedro': 22}
+# Más joven: 'Pedro'
 
-print("\n" + "=" * 50)
-print("NIVEL 3: FOR + LISTAS - Modificación")
-print("=" * 50)
 
-# Ejercicio 6: Crear nueva lista con transformación
-print("\n--- Ejercicio 6: Crear lista de dobles ---")
-originales = [1, 2, 3, 4, 5]
-dobles = []
-for numeros in originales:
-    dobles.append(numeros *2)
-print(f" los orginales son: {originales}")
-print(f" los dobles son: {dobles}")
 
 
+# =============================================================================
+# EJERCICIO 9: STRING + DICCIONARIO
+# =============================================================================
+# Dada una frase, cuenta cuántas vocales tiene cada tipo (a, e, i, o, u).
+# No diferencies entre mayúsculas y minúsculas.
+#
+# Ejemplo:
+# frase = "Hola mundo de Python"
+# Resultado: {'a': 1, 'e': 1, 'i': 0, 'o': 4, 'u': 2}
 
 
 
 
-
-
-
-
-
-
-
-
-
-# TODO: Crea una nueva lista con el doble de cada número
-# dobles = []
-# for num in originales:
-#     dobles.append(num * 2)
-# print(f"Originales: {originales}")
-# print(f"Dobles: {dobles}")
-
-
-# Ejercicio 7: Filtrar elementos (solo pares)
-print("\n--- Ejercicio 7: Filtrar números pares ---")
-numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-# TODO: Crea lista solo con números pares
-pares = []
-for numero in numeros:
-    if numero % 2 == 0:
-        pares.append(numero)
-print(f"originales:{numero}")
-print(f"pares:{pares}")
-
-        
-
-
-
-
-# pares = []
-# for num in numeros:
-#     if num % 2 == 0:
-#         pares.append(num)
-# print(f"Pares: {pares}")
-
-
-print("\n" + "=" * 50)
-print("NIVEL 4: TUPLAS + BUCLES - Inmutabilidad")
-print("=" * 50)
-
-# Ejercicio 8: Recorrer tupla
-print("\n--- Ejercicio 8: For con tupla ---")
-coordenadas = (10, 20, 30, 40)
-for coord in coordenadas:
-    print(f"cordaenadas: {coord}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# TODO: Recorre la tupla y muestra cada elemento
-# for coord in coordenadas:
-#     print(f"Coordenada: {coord}")
-
-
-# Ejercicio 9: Convertir tupla a lista, modificar y volver
-print("\n--- Ejercicio 9: Tupla → Lista → Tupla ---")
-dias_semana = ("lunes", "martes", "miercoles", "jueves", "viernes")
-semana_list = list(dias_semana)
-semana_list.append("sabado")
-semana_list.append("domingo")
-dias_completos = tuple(semana_list)
-print(f"la tupla original es {dias_semana}")
-print(f"la tupla corregida completa es {dias_completos}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# TODO: Convierte a lista, añade "sábado" y "domingo", vuelve a tupla
-# dias_lista = list(dias_semana)
-# dias_lista.append("sábado")
-# dias_lista.append("domingo")
-# dias_completos = tuple(dias_lista)
-# print(f"Tupla original: {dias_semana}")
-# print(f"Tupla completa: {dias_completos}")
-
-
-print("\n" + "=" * 50)
-print("NIVEL 5: BUCLES ANIDADOS + LISTAS")
-print("=" * 50)
-
-# Ejercicio 10: Lista de listas (matriz)
-print("\n--- Ejercicio 10: Recorrer matriz ---")
-matriz = [
-    [1, 2, 3],
-    [4, 5, 6],
-    [7, 8, 9]
-]
-for fila in matriz:
-    for elemento in fila:
-        print(elemento, end=" ")
-    print()
-
-# TODO: Usa bucles anidados para mostrar cada elemento
-# for fila in matriz:
-#     for elemento in fila:
-#         print(elemento, end=" ")
-#     print()  # Salto de línea después de cada fila
-
-
-print("\n" + "=" * 50)
-print("NIVEL 6: EJERCICIOS COMBINADOS - Reto")
-print("=" * 50)
-
-# Ejercicio 11: Contar ocurrencias
-print("\n--- Ejercicio 11: Contar repeticiones ---")
-letras = ["a", "b", "a", "c", "a", "b", "d"]
-letra_buscar = "a"
-contador = 0
-for letra in letras:
-    if letra == letra_buscar:
-        contador += 1
-print(f"hay {contador} de {letra_buscar} en {letras}")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# TODO: Cuenta cuántas veces aparece la letra usando for
-# contador = 0
-# for letra in letras:
-#     if letra == letra_buscar:
-#         contador += 1
-# print(f"La letra '{letra_buscar}' aparece {contador} veces")
-
-
-# Ejercicio 12: Encontrar máximo con for
-print("\n--- Ejercicio 12: Máximo con for ---")
-temperaturas = [18, 22, 19, 25, 21, 20, 23]
-
-# TODO: Encuentra la temperatura máxima usando for
-# max_temp = temperaturas[0]
-# for temp in temperaturas:
-#     if temp > max_temp:
-#         max_temp = temp
-# print(f"Temperatura máxima: {max_temp}°C")
-
-
-# Ejercicio 13: Lista de índices donde cumple condición
-print("\n--- Ejercicio 13: Índices de números >15 ---")
-valores = [10, 20, 12, 18, 25, 8, 30]
-
-# TODO: Crea lista con los índices donde el valor es >15
-# indices_mayores = []
-# for i in range(len(valores)):
-#     if valores[i] > 15:
-#         indices_mayores.append(i)
-# print(f"Índices con valor >15: {indices_mayores}")
-
-
-# Ejercicio 14: While con input - Llenar lista hasta centinela
-print("\n--- Ejercicio 14: Llenar lista con while (simulado) ---")
-# En clase harías input(), aquí lo simulamos con lista predefinida
-entradas = [5, 10, 15, 0, 20, 25]  # 0 es centinela
-
-# TODO: Procesa hasta encontrar el 0
-# numeros_validos = []
-# i = 0
-# while i < len(entradas) and entradas[i] != 0:
-#     numeros_validos.append(entradas[i])
-#     i += 1
-# print(f"Números válidos: {numeros_validos}")
-
-
-print("\n" + "=" * 50)
-print("🎉 ¡Práctica completada!")
-print("=" * 50)
-
-## ejercicios clase diccionarios 
+# =============================================================================
+# EJERCICIO 10: LISTA + SET
+# =============================================================================
+# Dada una lista con números duplicados, elimina los duplicados manteniendo
+# el orden original de aparición.
+#
+# Ejemplo:
+# numeros = [1, 2, 3, 2, 4, 1, 5, 3]
+# Resultado: [1, 2, 3, 4, 5]
+#
+# Pista: Usa un set para rastrear qué has visto, pero construye una nueva lista
+
+
+
+
+# =============================================================================
+# EJERCICIO 11: DICCIONARIO + LISTA
+# =============================================================================
+# Dado un diccionario que representa un inventario de una tienda,
+# crea una lista con los productos que tienen menos de 10 unidades.
+#
+# Ejemplo:
+# inventario = {'manzanas': 50, 'peras': 8, 'naranjas': 30, 'plátanos': 5}
+# Resultado: ['peras', 'plátanos']
+
+
+
+
+# =============================================================================
+# EJERCICIO 12: STRING + LISTA + SET
+# =============================================================================
+# Dada una frase, encuentra todas las palabras que aparecen más de una vez.
+#
+# Ejemplo:
+# frase = "hola mundo hola python mundo es genial"
+# Resultado: {'hola', 'mundo'}
+
+
+
+
+# =============================================================================
+# EJERCICIO 13: TUPLA + DICCIONARIO
+# =============================================================================
+# Dada una tupla de temperaturas (en Celsius) por día de la semana,
+# crea un diccionario donde la clave sea el día y el valor la temperatura.
+# Luego encuentra el día más caluroso.
+#
+# Ejemplo:
+# temperaturas = (15, 18, 20, 17, 19, 22, 16)
+# dias = ("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+# Resultado diccionario: {'Lunes': 15, 'Martes': 18, ...}
+# Día más caluroso: 'Sábado'
+
+
+
+
+# =============================================================================
+# EJERCICIO 14: LISTA + DICCIONARIO + SET (COMBINADO)
+# =============================================================================
+# Dadas dos listas de estudiantes con sus asignaturas favoritas:
+# - Crea un diccionario con cada estudiante y sus asignaturas
+# - Encuentra las asignaturas que son favoritas de al menos 2 estudiantes
+#
+# Ejemplo:
+# estudiantes = ["Ana", "Juan", "Pedro", "María"]
+# asignaturas = [["Matemáticas", "Física"], ["Matemáticas", "Historia"],
+#                ["Física", "Química"], ["Matemáticas", "Física"]]
+#
+# Diccionario: {'Ana': ['Matemáticas', 'Física'], ...}
+# Asignaturas populares: {'Matemáticas', 'Física'}
+
+
+
+
+# =============================================================================
+# EJERCICIO 15: TODO COMBINADO (DESAFÍO)
+# =============================================================================
+# Tienes una lista de frases. Para cada frase:
+# 1. Cuenta cuántas palabras tiene
+# 2. Encuentra la palabra más larga
+# 3. Crea un diccionario con esta información
+#
+# Ejemplo:
+# frases = [
+#     "Python es genial",
+#     "Me encanta programar en Python",
+#     "Los ejercicios ayudan a aprender"
+# ]
+#
+# Resultado: {
+#     "Python es genial": {"palabras": 3, "mas_larga": "Python"},
+#     "Me encanta programar en Python": {"palabras": 5, "mas_larga": "programar"},
+#     "Los ejercicios ayudan a aprender": {"palabras": 5, "mas_larga": "ejercicios"}
+# }
+
+
+
+
+# =============================================================================
+# 🎯 OBJETIVOS DE ESTOS EJERCICIOS:
+# =============================================================================
+# ✅ Practicar conversiones entre tipos de datos
+# ✅ Combinar múltiples estructuras de datos
+# ✅ Usar métodos nativos de Python
+# ✅ Aplicar lógica de programación
+# ✅ Prepararse para trabajar con funciones
+#
+# 💡 CONSEJO:
+# Intenta resolver cada ejercicio sin mirar las soluciones.
+# Si te atascas, revisa la chuleta de Python en recursos/chuleta_python.md
+# =============================================================================
