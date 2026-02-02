@@ -324,14 +324,100 @@ dicionario = dict(zip(keys, values))
 print(dicionario)
 
 ##2. Haz un programa que fusione dos diccionarios de Python en uno solo.
+dict1 = {"a": 1, "b": 2}
+dict2 = {"c": 3, "d": 4}
 
+resultado = dict1.copy() 
+resultado.update(dict2)  
+
+print(resultado)
 ##3. Haz un programa que imprima el valor de la clave 'history' del siguiente diccionario.
+##3. Imprimir el valor de la clave 'history'
+sample_dict = {
+    "class": {
+        "student": {
+            "name": "Mike",
+            "marks": {
+                "physics": 70,
+                "history": 80
+            }
+        }
+    }
+}
+print(sample_dict["class"]["student"]["marks"]["history"])
+
 ##4. Haz un programa que inicialice el diccionario con valores por defecto.
+claves = ['nombre', 'edad', 'ciudad', 'email']
+diccionario = dict.fromkeys(claves, None)
+print(diccionario)
+claves = ['nombre', 'edad', 'ciudad', 'email']
+diccionario = {clave: [] for clave in claves}
+diccionario["nombre"] = "alvaro"
+diccionario["edad"] = 30
+diccionario["ciudad"] = "Madrid"
+diccionario["email"] = None
 ##5. Haz un programa que cree un diccionario extrayendo las claves de un diccionario dado.
+diccionario_original = {
+    'nombre': 'Ana',
+    'edad': 25,
+    'ciudad': 'Madrid',
+    'email': 'ana@example.com',
+    'telefono': '123456789',
+    'activo': True
+}
+diccionario_nuevo ={}
+for clave in diccionario_original.keys():
+    diccionario_nuevo[clave] = diccionario_original[clave]
+print(f"El diccionario nuevo es: {diccionario_nuevo}")
 ##6. Haz un programa que elimine una lista de claves de un diccionario.
+diccionario_original = {
+    'nombre': 'Ana',
+    'edad': 25,
+    'ciudad': 'Madrid',
+    'email': 'ana@example.com',
+    'telefono': '123456789',
+    'activo': True
+}
+claves_eliminar = {"telefono", "activo"}
+for clave in claves_eliminar:
+    diccionario_original.pop(clave)
+print(diccionario_original) 
 ##7. Haz un programa que compruebe si un valor existe en un diccionario.
+diccionario_original = {
+    'nombre': 'Ana',
+    'edad': 25,
+    'ciudad': 'Madrid',
+    'email': 'ana@example.com',
+    'telefono': '123456789',
+    'activo': True
+}
+n = input("Introduce el valor a buscar: ")
+if n in diccionario_original.values():
+    print(f"El valor '{n}' si existe en el diccionario.")
+else:
+    print(f"El valor '{n}' no existe en el diccionario.")
 ##8. Haz un programa que cambie el nombre de la clave de un diccionario.
+diccionario_original = {
+    'nombre': 'Ana',
+    'edad': 25,
+    'ciudad': 'Madrid',
+    'email': 'ana@example.com',
+    'telefono': '123456789',
+    'activo': True
+}
+diccionario_original['años de vida'] = diccionario_original.pop('edad')
+print(diccionario_original)
 ##9. Haz un programa que obtenga la clave de un valor mínimo del siguiente diccionario.
+
+diccionario = {
+    'manzanas': 45,
+    'peras': 30,        
+    'naranjas': 55,
+    'plátanos': 40
+}
+valor_minimo = min(diccionario.values())
+
+print(f"Eñl valor minimo del diccionario es {valor_minimo}")
 ##10. Haz un programa que cambie el valor de una clave en un diccionario anidado.
 ## Sets
 ##1. Haz un programa que añada una lista de elementos a un conjunto.
