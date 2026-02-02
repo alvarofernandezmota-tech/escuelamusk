@@ -96,37 +96,190 @@
 
 ---
 
-## 🗂️ MÉTODOS DE DICCIONARIOS
+## 🗂️ DICCIONARIOS
 
-### **Acceder a datos:**
+### **Operaciones Básicas:**
 
-| Método | ¿Qué hace? | Ejemplo |
-|--------|------------|---------|
-| `.get(key)` | Obtiene valor (no da error) | `d.get("nombre")` → valor o `None` |
-| `.keys()` | Lista de claves | `d.keys()` → `dict_keys(['nombre', 'edad'])` |
-| `.values()` | Lista de valores | `d.values()` → `dict_values(['Juan', 25])` |
-| `.items()` | Lista de (clave, valor) | `d.items()` → `[('nombre','Juan'), ('edad', 25)]` |
+| Operación | Forma 1 | Forma 2 | Forma 3 |
+|-----------|---------|---------|---------|
+| **Crear** | `d = {}` | `d = dict()` | `d = {'a': 1}` |
+| **Añadir/modificar** | `d['clave'] = valor` | `d.update({'clave': valor})` | |
+| **Acceder** | `d['clave']` | `d.get('clave')` | `d.get('clave', default)` |
+| **Eliminar** | `d.pop('clave')` | `del d['clave']` | |
+| **Existe clave** | `'clave' in d` | | |
+| **Existe valor** | `valor in d.values()` | | |
 
-### **Modificar:**
+### **Métodos Principales:**
 
-| Método | ¿Qué hace? | Ejemplo |
-|--------|------------|---------|
-| `.update(otro)` | Fusiona con otro diccionario | `d.update({'edad': 26})` |
-| `.pop(key)` | Elimina y devuelve valor | `d.pop('nombre')` → `'Juan'` |
-| `.clear()` | Vacía el diccionario | `d.clear()` → `{}` |
+| Método | Qué devuelve | Ejemplo |
+|--------|--------------|---------|
+| `.keys()` | Claves | `dict_keys(['a', 'b'])` |
+| `.values()` | Valores | `dict_values([1, 2])` |
+| `.items()` | Tuplas (clave, valor) | `dict_items([('a',1), ('b',2)])` |
+| `.get(k, default)` | Valor o default | `d.get('x', 0)` → `0` |
+| `.pop(k)` | Valor (elimina) | `d.pop('a')` → `1` |
+| `.update(otro)` | None (fusiona) | `d.update({'c': 3})` |
+| `.clear()` | None (vacía) | `d.clear()` → `{}` |
+| `.fromkeys(keys, val)` | Nuevo dict | `dict.fromkeys(['a','b'], 0)` |
+
+### **Iterar Diccionarios:**
+
+```python
+# Solo claves
+for clave in diccionario:
+    print(clave)
+
+# Claves explícito
+for clave in diccionario.keys():
+    print(clave)
+
+# Solo valores
+for valor in diccionario.values():
+    print(valor)
+
+# Claves + valores
+for clave, valor in diccionario.items():
+    print(clave, valor)
+```
+
+### **Obtener Máximos/Mínimos:**
+
+```python
+d = {'a': 10, 'b': 5, 'c': 15}
+
+# Valor máximo
+max(d.values())  # 15
+
+# Clave del valor máximo
+max(d, key=d.get)  # 'c'
+
+# Valor mínimo
+min(d.values())  # 5
+
+# Clave del valor mínimo
+min(d, key=d.get)  # 'b'
+```
+
+### **Cambiar Nombre de Clave:**
+
+```python
+# Forma 1: con pop()
+d['nueva_clave'] = d.pop('vieja_clave')
+
+# Forma 2: manual
+d['nueva_clave'] = d['vieja_clave']
+del d['vieja_clave']
+```
+
+### **Fusionar Diccionarios:**
+
+| Método | Modifica original | Ejemplo |
+|--------|-------------------|---------|
+| `.update()` | ✅ SÍ | `d1.update(d2)` |
+| `{**d1, **d2}` | ❌ NO (nuevo) | `d3 = {**d1, **d2}` |
+| `d1 \| d2` | ❌ NO (Python 3.9+) | `d3 = d1 \| d2` |
 
 ---
 
-## 🎲 MÉTODOS DE SETS
+## 🎲 SETS (CONJUNTOS)
 
-| Método | ¿Qué hace? | Ejemplo |
-|--------|------------|---------|
-| `.add(x)` | Añade elemento | `{1,2}.add(3)` → `{1,2,3}` |
-| `.remove(x)` | Elimina x (error si no existe) | `{1,2,3}.remove(2)` → `{1,3}` |
-| `.discard(x)` | Elimina x (sin error) | `{1,2}.discard(5)` → `{1,2}` |
-| `.union(otro)` | Unión de sets | `{1,2}.union({2,3})` → `{1,2,3}` |
-| `.intersection(otro)` | Elementos comunes | `{1,2}.intersection({2,3})` → `{2}` |
-| `.difference(otro)` | Elementos solo en primero | `{1,2}.difference({2,3})` → `{1}` |
+### **Operaciones Básicas:**
+
+| Operación | Forma 1 | Forma 2 | Forma 3 |
+|-----------|---------|---------|---------|
+| **Crear** | `s = set()` | `s = {1, 2, 3}` | `s = set([1,2,3])` |
+| **Añadir** | `s.add(x)` | | |
+| **Añadir varios** | `s.update([1,2,3])` | `s \|= {1,2,3}` | |
+| **Eliminar** | `s.remove(x)` ⚠️ error | `s.discard(x)` ✅ sin error | `s.pop()` (aleatorio) |
+| **Existe** | `x in s` | | |
+
+### **Operaciones de Conjuntos (NO modifican):**
+
+| Operación | Operador | Método | Qué hace |
+|-----------|----------|--------|----------|
+| **Unión** | `s1 \| s2` | `s1.union(s2)` | En s1 O s2 |
+| **Intersección** | `s1 & s2` | `s1.intersection(s2)` | En s1 Y s2 |
+| **Diferencia** | `s1 - s2` | `s1.difference(s2)` | En s1 pero NO en s2 |
+| **Dif. simétrica** | `s1 ^ s2` | `s1.symmetric_difference(s2)` | En s1 O s2, NO en ambos |
+
+### **Operaciones que SÍ Modifican:**
+
+| Operación | Operador | Método | Qué hace |
+|-----------|----------|--------|----------|
+| **Unión** | `s1 \|= s2` | `s1.update(s2)` | Añade s2 a s1 |
+| **Intersección** | `s1 &= s2` | `s1.intersection_update(s2)` | Solo comunes |
+| **Diferencia** | `s1 -= s2` | `s1.difference_update(s2)` | Elimina comunes |
+| **Dif. simétrica** | `s1 ^= s2` | `s1.symmetric_difference_update(s2)` | Solo únicos |
+
+### **Comparaciones:**
+
+```python
+s1 = {1, 2, 3}
+s2 = {1, 2}
+
+# Subconjunto
+s2.issubset(s1)      # True (s2 está en s1)
+s2 <= s1             # True
+
+# Superconjunto
+s1.issuperset(s2)    # True (s1 contiene s2)
+s1 >= s2             # True
+
+# Disjuntos (sin elementos comunes)
+s1.isdisjoint(s2)    # False (tienen comunes)
+```
+
+---
+
+## 🔄 CONVERSIONES
+
+```python
+# Lista → Set (elimina duplicados)
+lista = [1, 2, 2, 3]
+set(lista)  # {1, 2, 3}
+
+# Set → Lista
+list({1, 2, 3})  # [1, 2, 3]
+
+# Dict → Set (solo claves)
+set({'a': 1, 'b': 2})  # {'a', 'b'}
+
+# Listas → Dict
+keys = ['a', 'b']
+values = [1, 2]
+dict(zip(keys, values))  # {'a': 1, 'b': 2}
+```
+
+---
+
+## 📊 FÓRMULAS COMUNES
+
+```python
+# Eliminar duplicados de lista
+lista_unica = list(set(lista))
+
+# Encontrar elementos comunes entre listas
+comunes = list(set(lista1) & set(lista2))
+
+# Encontrar elementos únicos entre listas
+unicos = list(set(lista1) ^ set(lista2))
+
+# Contar frecuencias
+from collections import Counter
+freq = Counter(lista)
+
+# Invertir diccionario (valores → claves)
+d_invertido = {v: k for k, v in d.items()}
+
+# Filtrar diccionario
+d_filtrado = {k: v for k, v in d.items() if v > 10}
+
+# Diccionario desde listas
+d = dict(zip(claves, valores))
+
+# Valor por defecto si clave no existe
+d.setdefault('clave', valor_default)
+```
 
 ---
 
@@ -181,8 +334,11 @@ for i in range(len(lista)):
 # Con enumerate
 for i, elemento in enumerate(lista):
     print(i, elemento)
-WHILE:
-python
+```
+
+### **WHILE:**
+
+```python
 # Bucle básico
 i = 0
 while i < 10:
@@ -194,18 +350,28 @@ num = int(input("Número (-1 para salir): "))
 while num != -1:
     print(num)
     num = int(input("Número (-1 para salir): "))
-✂️ SLICING
-python
-lista = 
+```
 
-lista[2:5]    #  - desde 2 hasta 5 (sin incluir 5)
-lista[:5]     #  - desde inicio hasta 5
-lista[5:]     #  - desde 5 hasta el final
-lista[::2]    #  - cada 2 elementos
-lista[::-1]   #  - invertir
-lista[-3:]    #  - últimos 3 elementos
-📝 LIST COMPREHENSION
-python
+---
+
+## ✂️ SLICING
+
+```python
+lista = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+lista[2:5]    # [2, 3, 4] - desde 2 hasta 5 (sin incluir 5)
+lista[:5]     # [0, 1, 2, 3, 4] - desde inicio hasta 5
+lista[5:]     # [5, 6, 7, 8, 9] - desde 5 hasta el final
+lista[::2]    # [0, 2, 4, 6, 8] - cada 2 elementos
+lista[::-1]   # [9, 8, 7, 6, 5, 4, 3, 2, 1, 0] - invertir
+lista[-3:]    # [7, 8, 9] - últimos 3 elementos
+```
+
+---
+
+## 📝 LIST COMPREHENSION
+
+```python
 # Básico
 [x for x in lista]
 
@@ -220,48 +386,52 @@ python
 
 # Anidado
 [x for sublista in lista_de_listas for x in sublista]
-✨ TRUTHY / FALSY
-FALSY (evalúan como False):
-"" - Cadena vacía
+```
 
-[] - Lista vacía
+---
 
-{} - Diccionario vacío
+## ✨ TRUTHY / FALSY
 
-() - Tupla vacía
+**FALSY (evalúan como False):**
+- `""` - Cadena vacía
+- `[]` - Lista vacía
+- `{}` - Diccionario vacío
+- `()` - Tupla vacía
+- `set()` - Set vacío
+- `0` - Cero
+- `None` - None
+- `False` - False
 
-set() - Set vacío
+**TRUTHY (evalúan como True):**
+- Cualquier string con contenido: `"hola"`
+- Cualquier lista con elementos: `[1, 2]`
+- Cualquier número distinto de 0: `42`
+- `True`
 
-0 - Cero
-
-None - None
-
-False - False
-
-TRUTHY (evalúan como True):
-Cualquier string con contenido: "hola"
-
-Cualquier lista con elementos: [1, 2]
-
-Cualquier número distinto de 0: 42
-
-True
-
-python
+```python
 if lista:  # True si lista tiene elementos
     print("Tiene elementos")
 else:
     print("Está vacía")
-🎯 PATRONES COMUNES
-Eliminar elementos vacíos:
-python
+```
+
+---
+
+## 🎯 PATRONES COMUNES
+
+**Eliminar elementos vacíos:**
+
+```python
 # Método 1: List comprehension
 nueva = [x for x in lista if x]
 
 # Método 2: filter
 nueva = list(filter(None, lista))
-Construir string desde lista:
-python
+```
+
+**Construir string desde lista:**
+
+```python
 # Método eficiente
 resultado = "".join(lista)
 
@@ -269,15 +439,21 @@ resultado = "".join(lista)
 resultado = ""
 for item in lista:
     resultado += item
-Verificar existencia:
-python
+```
+
+**Verificar existencia:**
+
+```python
 if elemento in lista:
     print("Existe")
 
 if clave in diccionario:
     print("Clave existe")
-Iterar diccionario:
-python
+```
+
+**Iterar diccionario:**
+
+```python
 # Solo claves
 for clave in diccionario:
     print(clave)
@@ -285,27 +461,57 @@ for clave in diccionario:
 # Claves y valores
 for clave, valor in diccionario.items():
     print(clave, valor)
-💡 CONSEJOS
-Usa .join() para strings (más eficiente que +=)
+```
 
-List comprehension es más pythónico que bucles simples
+---
 
-.get() en diccionarios evita errores (mejor que [])
+## ⚡ TRUCOS PYTHÓNICOS
 
-any() y all() son más elegantes que bucles con banderas
+```python
+# Verificar si diccionario vacío
+if not d:  # True si vacío
 
-Slicing es más rápido y legible que bucles
+# Verificar si set vacío
+if not s:  # True si vacío
 
-in para verificar existencia (no uses bucles)
+# Swap de valores en diccionario
+d['a'], d['b'] = d['b'], d['a']
 
-enumerate() cuando necesitas índice y elemento
+# Merge múltiples sets
+resultado = set().union(s1, s2, s3)
 
-📚 RECURSOS
-Documentación oficial: https://docs.python.org/3/
+# Crear dict con valores por defecto
+d = {k: 0 for k in claves}
+d = dict.fromkeys(claves, 0)
 
-PEP 8 (estilo): https://pep8.org/
+# Eliminar mientras iteras (copy)
+for k in list(d.keys()):
+    if condicion:
+        del d[k]
+```
 
-Python Tutor (visualizar código): https://pythontutor.com/
+---
 
-Creado: 02 Febrero 2026
-Escuela Musk - Preparación PCAP
+## 💡 CONSEJOS
+
+- Usa `.join()` para strings (más eficiente que `+=`)
+- List comprehension es más pythónico que bucles simples
+- `.get()` en diccionarios evita errores (mejor que `[]`)
+- `any()` y `all()` son más elegantes que bucles con banderas
+- Slicing es más rápido y legible que bucles
+- `in` para verificar existencia (no uses bucles)
+- `enumerate()` cuando necesitas índice y elemento
+- Operadores de sets (`|`, `&`, `-`, `^`) son más limpios que métodos
+
+---
+
+## 📚 RECURSOS
+
+- Documentación oficial: https://docs.python.org/3/
+- PEP 8 (estilo): https://pep8.org/
+- Python Tutor (visualizar código): https://pythontutor.com/
+
+---
+
+**Creado: 02 Febrero 2026**  
+**Escuela Musk - Preparación PCAP**
