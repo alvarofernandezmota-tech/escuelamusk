@@ -23,9 +23,14 @@ Objetivo: Consolidar conocimientos antes de pasar a Funciones
 # Ejemplo:
 # nombres = ["Ana", "Juan", "Ana", "Pedro", "Juan", "Ana"]
 # Resultado: {'Ana': 3, 'Juan': 2, 'Pedro': 1}
-
-
-
+nombres = ["Ana", "Juan", "Ana", "Pedro", "Juan", "Ana"]
+conteo = {}
+for nombre in nombres:
+    if nombre in conteo:
+        conteo[nombre] += 1
+    else:
+        conteo[nombre] = 1
+print(conteo)
 
 # =============================================================================
 # EJERCICIO 2: STRING + LISTA
@@ -35,9 +40,16 @@ Objetivo: Consolidar conocimientos antes de pasar a Funciones
 # Ejemplo:
 # frase = "Python es un lenguaje de programación muy potente"
 # Resultado: ['Python', 'lenguaje', 'programación', 'potente']
-
-
-
+frase = "Python es un lenguaje de programación muy potente"
+palabra_cinco_letras = []
+palabras = frase.split()
+for palabra in palabras:
+    if len(palabra) > 5:
+        palabra_cinco_letras.append(palabra)
+if palabra_cinco_letras:
+    print(palabra_cinco_letras)
+else:
+    print("No hay palabras con más de 5 letras")
 
 # =============================================================================
 # EJERCICIO 3: SET + LISTA
@@ -50,10 +62,25 @@ Objetivo: Consolidar conocimientos antes de pasar a Funciones
 # Ejemplo:
 # lista1 = [1, 2, 3, 4, 5]
 # lista2 = [4, 5, 6, 7, 8]
-
-
-
-
+lista1 = [1, 2, 3, 4, 5]
+lista2 = [4, 5, 6, 7, 8]
+elementos_comunes = []
+elementos_unicos = []
+elementos_sin_duplicados = []
+for elemento in lista1:
+    if elemento in lista2:
+        elementos_comunes.append(elemento)
+    if elemento not in lista2:
+        elementos_unicos.append(elemento)
+for elemento in lista2:
+    if elemento not in lista1:
+        elementos_unicos.append(elemento)
+listas_juntas = lista1 + lista2
+print(listas_juntas)
+for elemento in listas_juntas:
+    if elemento not in elementos_sin_duplicados:
+        elementos_sin_duplicados.append(elemento)
+print(elementos_sin_duplicados)
 # =============================================================================
 # EJERCICIO 4: DICCIONARIO + TUPLA
 # =============================================================================
@@ -61,8 +88,11 @@ Objetivo: Consolidar conocimientos antes de pasar a Funciones
 # el producto más caro y el más barato.
 #
 # Ejemplo:
-# productos = {'manzana': 1.5, 'pan': 0.8, 'leche': 1.2, 'huevos': 2.5}
-# Resultado: ('huevos', 'pan')
+productos = {'manzana': 1.5, 'pan': 0.8, 'leche': 1.2, 'huevos': 2.5}
+mas_caro = max(productos, key=productos.get)
+menos_caro = min(productos, key=productos.get)
+print(f"{mas_caro}: {productos[mas_caro]}€, {menos_caro}: {productos[menos_caro]}€")
+
 
 
 
@@ -74,8 +104,13 @@ Objetivo: Consolidar conocimientos antes de pasar a Funciones
 # por un guion y todas estén en mayúsculas.
 #
 # Ejemplo:
-# palabras = ["hola", "mundo", "python"]
-# Resultado: "HOLA-MUNDO-PYTHON"
+palabras = ["hola", "mundo", "python"]
+palabras_mayusculas = []
+for palabra in palabras:
+    palabras_mayusculas.append(palabra.upper())
+resultado = "-".join(palabras_mayusculas)
+print(resultado)
+
 
 
 
@@ -87,12 +122,16 @@ Objetivo: Consolidar conocimientos antes de pasar a Funciones
 # cada estudiante y crea un nuevo diccionario con las medias.
 #
 # Ejemplo:
-# estudiantes = {
-#     'Ana': [8, 7, 9],
-#     'Juan': [6, 7, 5],
-#     'Pedro': [9, 8, 10]
-# }
-# Resultado: {'Ana': 8.0, 'Juan': 6.0, 'Pedro': 9.0}
+estudiantes = {
+    'Ana': [8, 7, 9],
+    'Juan': [6, 7, 5],
+    'Pedro': [9, 8, 10]
+}
+medias = {}
+for nombre, notas in estudiantes.items():
+    media = sum(notas) / len(notas)
+    medias[nombre] = media
+print(medias)
 
 
 
@@ -104,8 +143,11 @@ Objetivo: Consolidar conocimientos antes de pasar a Funciones
 # aparecen en la frase. Ignora espacios y convierte todo a minúsculas.
 #
 # Ejemplo:
-# frase = "Hola Mundo"
-# Resultado: {'a', 'd', 'h', 'l', 'm', 'n', 'o', 'u'}
+frase = "Hola Mundo"
+frase_lower = frase.lower()
+frase_remplace = frase_lower.replace(" ", "")
+frase_set = set(frase_remplace)
+print(frase_set)
 
 
 
@@ -118,9 +160,9 @@ Objetivo: Consolidar conocimientos antes de pasar a Funciones
 # de la persona más joven.
 #
 # Ejemplo:
-# personas = [("Ana", 25), ("Juan", 30), ("Pedro", 22)]
-# Diccionario: {'Ana': 25, 'Juan': 30, 'Pedro': 22}
-# Más joven: 'Pedro'
+personas = [("Ana", 25), ("Juan", 30), ("Pedro", 22)]
+Diccionario: {}
+
 
 
 
