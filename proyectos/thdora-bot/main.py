@@ -11,7 +11,7 @@ Fecha: 2026-02-04
 # from funciones.eliminar_cita import eliminar_cita
 # from funciones.buscar_cita import buscar_cita
 # from funciones.guardar_datos import cargar_datos, guardar_datos
-
+import json
 
 def mostrar_menu():
     """
@@ -29,6 +29,22 @@ def mostrar_menu():
     print("6. Salir")
     print("\n" + "-"*50)
 
+def saludar_usuario():
+    """
+    Carga el usuario y muestra saludo personalizado.
+    Devuelve el nombre del usuario.
+    """
+    with open("datos/usuario.json", "r", encoding="utf-8") as file:
+        usuario = json.load(file)
+    
+    nombre_usuario = usuario["nombre"]
+    
+    print("\n" + "="*50)
+    print(f"👋 ¡Hola {nombre_usuario}! Bienvenido a THDORA")
+    print("🗓️  Tu asistente de agenda personal")
+    print("="*50)
+    
+    return nombre_usuario
 
 def main():
     """
@@ -64,7 +80,7 @@ def main():
             # Aquí llamaremos a buscar_cita(agenda)
             
         elif opcion == "6":
-            print("\n👋 Hasta pronto! Tus citas están guardadas.")
+            print("\n👋 Hasta pronto, {nombre_usuario}! Tus citas están guardadas.")
             # Aquí llamaremos a guardar_datos(agenda)
             break
             
