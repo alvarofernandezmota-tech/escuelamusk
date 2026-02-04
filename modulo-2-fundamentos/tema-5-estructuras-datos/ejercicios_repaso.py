@@ -161,7 +161,11 @@ print(frase_set)
 #
 # Ejemplo:
 personas = [("Ana", 25), ("Juan", 30), ("Pedro", 22)]
-Diccionario: {}
+Diccionario_personas = dict(personas)
+mas_joven = min(Diccionario_personas, key=Diccionario_personas.get)
+print(Diccionario_personas)
+print(f"la persona mas joven es: {mas_joven}: {Diccionario_personas[mas_joven]} años")
+
 
 
 
@@ -176,7 +180,16 @@ Diccionario: {}
 # Ejemplo:
 # frase = "Hola mundo de Python"
 # Resultado: {'a': 1, 'e': 1, 'i': 0, 'o': 4, 'u': 2}
-
+frase = "Hola mundo de Python"
+vocales = ["a", "e", "i", "o", "u"]
+Diccionario_vocales ={}
+for vocal in vocales:
+    Diccionario_vocales[vocal] = 0
+frase_lower = frase.lower()
+for letra in frase_lower:
+    if letra in Diccionario_vocales:
+        Diccionario_vocales[letra] += 1
+print(Diccionario_vocales)
 
 
 
@@ -192,7 +205,14 @@ Diccionario: {}
 #
 # Pista: Usa un set para rastrear qué has visto, pero construye una nueva lista
 
-
+numeros = [1, 2, 3, 2, 4, 1, 5, 3]
+vistos = set()        # ← Para rastrear qué has visto
+resultado = []   
+for numero in numeros:
+    if numero not in vistos:
+        resultado.append(numero)
+        vistos.add(numero)
+print(resultado)
 
 
 # =============================================================================
@@ -204,7 +224,12 @@ Diccionario: {}
 # Ejemplo:
 # inventario = {'manzanas': 50, 'peras': 8, 'naranjas': 30, 'plátanos': 5}
 # Resultado: ['peras', 'plátanos']
-
+inventario = {'manzanas': 50, 'peras': 8, 'naranjas': 30, 'plátanos': 5} #{PRODUCTO: UNIDADES}
+menores_diez = []
+for producto, unidades in inventario.items():
+    if unidades < 10:
+        menores_diez.append(producto)
+print(f"Los productos con menos de 10 unidades son : {menores_diez}")
 
 
 
@@ -216,7 +241,34 @@ Diccionario: {}
 # Ejemplo:
 # frase = "hola mundo hola python mundo es genial"
 # Resultado: {'hola', 'mundo'}
+frase = "hola mundo hola python mundo es genial"
+palabras = frase.split()
+conteo = {}
+for palabra in palabras:
+    if palabra in conteo:
+        conteo[palabra] += 1
+    else:
+        conteo[palabra] = 1
+repetidas = set()
+for palabra, veces in conteo.items():
+    if veces > 1:
+        repetidas.add(palabra)
+print(repetidas)
 
+## ========================================================
+## ===============================================================
+
+frase = "hola mundo hola python mundo es genial"
+palabras = frase.split()
+conteo = {}
+for palabra in palabras:
+    if palabra in conteo:
+        conteo[palabra] += 1
+    else:
+        conteo[palabra] = 1
+for palabra, veces in conteo.items():
+    if veces > 1:
+        print(f"{palabra}: {veces}")
 
 
 
@@ -232,6 +284,13 @@ Diccionario: {}
 # dias = ("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
 # Resultado diccionario: {'Lunes': 15, 'Martes': 18, ...}
 # Día más caluroso: 'Sábado'
+temperaturas = (15, 18, 20, 17, 19, 22, 16)
+dias = ("Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo")
+temperaturas_dias = {}
+for i in range(len((dias))):
+    temperaturas_dias[i] = temperaturas[i]
+print(temperaturas_dias)
+dia_mas = max()
 
 
 
@@ -250,6 +309,13 @@ Diccionario: {}
 #
 # Diccionario: {'Ana': ['Matemáticas', 'Física'], ...}
 # Asignaturas populares: {'Matemáticas', 'Física'}
+estudiantes = ["Ana", "Juan", "Pedro", "María"]
+asignaturas = [["Matemáticas", "Física"], ["Matemáticas", "Historia"],
+               ["Física", "Química"], ["Matemáticas", "Física"]]
+estudiantes_asig_fav = {}
+for i in range(len(estudiantes)):
+    estudiantes_asig_fav[estudiantes[i]] = asignaturas[i]
+print(estudiantes_asig_fav)
 
 
 
@@ -274,7 +340,22 @@ Diccionario: {}
 #     "Me encanta programar en Python": {"palabras": 5, "mas_larga": "programar"},
 #     "Los ejercicios ayudan a aprender": {"palabras": 5, "mas_larga": "ejercicios"}
 # }
+frases = [
+    "Python es genial",
+    "Me encanta programar en Python",
+    "Los ejercicios ayudan a aprender"
+]
+resumen = {}
+for frase in frases:
+    palabras = frase.split()
+    num_palabras =len(palabras)
+    palabra_mas_larga = max(palabras, key=len)
+    resumen[frase] = {
+        "palabras": num_palabras,
+    "palabra mas larga": palabra_mas_larga}
 
+print(resumen)
+    
 
 
 
