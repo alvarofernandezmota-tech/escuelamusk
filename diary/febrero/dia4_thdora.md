@@ -9,7 +9,7 @@
 
 ---
 
-## 2. Estructura de carpetas y archivos creada
+## 2. Estructura de carpetas y archivos
 
 Ruta base del proyecto:
 
@@ -30,15 +30,15 @@ proyectos/
     │   └── __init__.py
     └── main.py
 2.1. Documentación del proyecto
-ESTRUCTURA.md:
+ESTRUCTURA.md
 
 Describe la organización de datos/ y los formatos de:
 
-usuario.json (perfil del usuario).
+usuario.json → perfil del usuario.
 
-categorias.json (categorías de citas).
+categorias.json → categorías de citas.
 
-2026/febrero.json (citas por día del mes).[cite:191]
+2026/febrero.json → citas por día del mes.
 
 Define convenciones:
 
@@ -46,25 +46,37 @@ Fechas por año/carpeta, mes/archivo, día/clave "DD".
 
 Horas en formato HH:MM 24h.
 
-Nombres de archivos de mes en español y minúsculas.
+Meses en español y minúsculas (ej. febrero.json).
 
-README.md:
+README.md
 
 Introducción al bot THDORA.
 
-Idea general: asistente de agenda personal en consola.
+Idea general: asistente de agenda personal en consola para gestionar citas.
 
-ROADMAP.md:
+ROADMAP.md
 
-Lista de futuras funcionalidades: gestión de citas, filtros por día/mes, categorías, estadísticas, etc.
+Lista de futuras funcionalidades:
 
-DICCIONARIOS.md:
+Añadir/editar/eliminar citas.
 
-Pequeña “chuleta” de diccionarios en Python aplicada al bot:
+Ver citas por día y por mes.
+
+Filtrado por categoría.
+
+Estadísticas básicas.
+
+DICCIONARIOS.md
+
+“Chuleta” de uso de diccionarios en Python aplicada a THDORA:
 
 Agenda como dict de días → lista de citas.
 
-Ejemplos de acceso y actualización (añadir cita a un día, crear día nuevo).
+Ejemplos de:
+
+Crear un día nuevo.
+
+Añadir una cita a un día existente.
 
 2.2. Archivos de datos (datos/)
 datos/usuario.json
@@ -84,11 +96,11 @@ json
 }
 Decisiones:
 
-Guardar el nombre del usuario para poder saludarlo.
+Guardar el nombre del usuario para poder mostrar un saludo personalizado.
 
-Guardar zona_horaria y formato_hora pensando en una futura versión con fechas/horas más avanzadas.
+Incluir zona_horaria y formato_hora pensando en una versión futura más avanzada.
 
-estadisticas preparado para futuras métricas: total de citas y categoría más usada.[cite:190]
+Dejar preparado estadisticas para métricas (total de citas, categoría favorita).
 
 datos/categorias.json
 json
@@ -106,35 +118,64 @@ json
 }
 Cada categoría tiene:
 
-nombre: clave interna que se usará en las citas ("estudio", "proyecto", etc.).
+nombre: identificador interno (lo que se guarda en cada cita).
 
 emoji: icono visual para mostrar en listados.
 
-color: idea de paleta si algún día se presenta en UI más rica.[cite:189]
+color: pensado para futuras interfaces más visuales.
 
 datos/2026/febrero.json
-Archivo preparado para guardar las citas de febrero 2026.
+Ejemplo actual:
 
-Formato documentado en ESTRUCTURA.md:
-
+json
+{
+  "04": [
+    {
+      "hora_inicio": "15:30",
+      "hora_fin": "18:50",
+      "nombre": "Estudiar Python - Ejercicios 8-15 estructuras datos",
+      "categoria": "estudio"
+    },
+    {
+      "hora_inicio": "19:30",
+      "hora_fin": "20:15",
+      "nombre": "Planificación proyecto THDORA",
+      "categoria": "proyecto"
+    }
+  ],
+  "05": [
+    {
+      "hora_inicio": "10:00",
+      "hora_fin": "11:30",
+      "nombre": "Ver video funciones Python",
+      "categoria": "estudio"
+    },
+    {
+      "hora_inicio": "16:00",
+      "hora_fin": "18:00",
+      "nombre": "Primera función THDORA: agregar_cita()",
+      "categoria": "proyecto"
+    }
+  ]
+}
 Clave: "DD" (día en 2 dígitos).
 
-Valor: lista de citas con campos:
+Valor: lista de citas, donde cada cita tiene:
 
-hora_inicio, hora_fin, nombre, categoria.[cite:191]
+hora_inicio, hora_fin, nombre, categoria.
 
-Se deja como plantilla para futuras sesiones (todavía sin lógica en el código).
+Nota: más adelante se podría evolucionar a un objeto por día (citas, reflexion, habitos), pero eso se deja como idea futura, no implementada todavía.
 
 2.3. Módulos Python
-funciones/__init__.py:
+funciones/__init__.py
 
-Archivo vacío para que proyectos/thdora-bot se pueda tratar como paquete Python desde VS Code/IDE.
+Archivo vacío para que proyectos/thdora-bot pueda tratarse como paquete Python en el editor/IDE.
 
 3. Lógica del bot en main.py
 3.1. Importaciones
 python
 import json
-Se importa json porque el bot va a leer datos de datos/usuario.json (y más adelante de otros JSON).[cite:187]
+Se importa json porque THDORA leerá los datos desde los archivos JSON (usuario.json, etc.).
 
 3.2. Menú principal
 python
@@ -153,9 +194,9 @@ def mostrar_menu():
     print("5. Buscar cita")
     print("6. Salir")
     print("\n" + "-"*50)
-Primer diseño del menú con 6 opciones básicas.
+Primer diseño del menú, con las 6 acciones básicas que tendrá el bot.
 
-Todas las opciones por ahora muestran solo [FUNCIONALIDAD EN DESARROLLO]; servirán como anclaje para funciones futuras.[cite:187]
+Por ahora, todas las opciones se marcan como [FUNCIONALIDAD EN DESARROLLO] en el cuerpo de main().
 
 3.3. Función saludar_usuario()
 python
@@ -175,19 +216,19 @@ def saludar_usuario():
     print("="*50)
     
     return nombre_usuario
-Primero contacto con funciones “reales” en el bot:
+Encapsula la lógica de:
 
-Encapsula la lógica de leer el JSON del usuario.
+Leer el JSON de usuario.
 
-Devuelve nombre_usuario para poder usarlo en otras partes del programa (por ejemplo, al despedirse).[cite:187]
+Mostrar un saludo bonito con el nombre.
 
-Decisiones:
+Devolver nombre_usuario para poder reutilizarlo (por ejemplo, al despedirse).
 
-Uso de with open(..., encoding="utf-8") para soportar caracteres especiales (tildes, emojis).
-
-Guardar el resultado de json.load(file) en un diccionario usuario y extraer la clave "nombre".
+Uso de with open(..., encoding="utf-8") para soportar tildes y emojis.
 
 3.4. Bucle principal main()
+Versión actual:
+
 python
 def main():
     """
@@ -229,90 +270,116 @@ def main():
             
         else:
             print("\n❌ Opción inválida. Por favor, elige del 1 al 6.")
-Decisiones de diseño:
+Decisiones tomadas:
 
-agenda = {} preparado como diccionario en memoria que luego se sincronizará con datos/2026/febrero.json.
+agenda = {} será el diccionario en memoria para sincronizar con los archivos mensuales más adelante.
 
-Un solo bucle while True que:
+Un único while True gobierna el flujo:
 
-Muestra menú.
+Muestra el menú.
 
-Lee opción del usuario.
+Pide una opción al usuario.
 
-Ejecuta la acción correspondiente.
+Llama a la acción correspondiente (de momento, solo mensajes de “en desarrollo”).
 
-Pendientes para próximas sesiones:
+Pendientes claros para próximas sesiones:
 
-Sustituir el saludo genérico por llamada real a saludar_usuario() y guardar el nombre:
+Sustituir el print de bienvenida genérico por:
 
-nombre_usuario = saludar_usuario().
+python
+nombre_usuario = saludar_usuario()
+Convertir la despedida en un f-string para que use el nombre real:
 
-Convertir la despedida en un f-string para que se use el nombre real:
-
-print(f"\n👋 Hasta pronto, {nombre_usuario}! ...").[cite:187]
-
+python
+print(f"\n👋 Hasta pronto, {nombre_usuario}! Tus citas están guardadas.")
 4. Trabajo con Git específico de THDORA
-Durante esta sesión se han hecho varios pasos siguiendo siempre el mismo patrón:
+Durante la sesión he usado Git de forma sistemática:
 
-Comprobar el estado:
+Comprobar estado
 
-git status para ver:
+bash
+git status
+Para ver:
 
-Archivos modificados (proyectos/thdora-bot/main.py).
+Archivos modificados (proyectos/thdora-bot/main.py, etc.).
 
-Archivos nuevos (proyectos/thdora-bot/...).
+Archivos nuevos (ESTRUCTURA.md, DICCIONARIOS.md, usuario.json, etc.).
 
-Añadir archivos relevantes:
+Añadir archivos relevantes
 
+bash
 git add proyectos/thdora-bot/main.py
-
 git add proyectos/thdora-bot/ESTRUCTURA.md
-
 git add proyectos/thdora-bot/DICCIONARIOS.md
-
 git add proyectos/thdora-bot/README.md
-
 git add proyectos/thdora-bot/ROADMAP.md
-
 git add proyectos/thdora-bot/datos/usuario.json
-
 git add proyectos/thdora-bot/datos/categorias.json
+Commits con mensajes claros
 
-Crear commits con mensajes claros:
+docs: Crear documentación de diccionarios Python
 
-"docs: Crear documentación de diccionarios Python"
+feat: Saludo personalizado y despedida con nombre en THDORA
 
-"feat: Saludo personalizado y despedida con nombre en THDORA"
+fix: Añadir __init__.py a proyectos para VS Code
 
-"fix: Añadir __init__.py a proyectos para VS Code"
+Subir a GitHub
 
-Subir a GitHub:
-
+bash
 git push origin main
+Limpieza de “ruidos”
 
-Resolver pequeños “ruidos”:
-
-Aparición de un archivo accidental tatusa:
+Apareció un archivo accidental tatusa:
 
 Detectado con git status como “Untracked file”.
 
 Eliminado con del tatusa para dejar el árbol limpio.
 
-Resultado final de la sesión:
+Estado final de la sesión:
 
 text
 On branch main
 Your branch is up to date with 'origin/main'.
 
 nothing to commit, working tree clean
-5. Resumen de la sesión de trabajo en THDORA
+5. Ideas futuras y decisiones tomadas hoy
+Reflexión diaria en la agenda:
+
+Idea: que cada día no solo tenga citas, sino también un campo reflexion con una frase corta sobre cómo ha ido el día.
+
+Ejemplo futuro:
+
+json
+"04": {
+  "citas": [ ... ],
+  "reflexion": "Día muy centrado en Python y en empezar a dar forma a THDORA."
+}
+Decisión: solo lo dejo diseñado; todavía no lo implemento en el código.
+
+Hábitos diarios y análisis semanal:
+
+Idea: por cada día guardar un bloque habitos con checks true/false (leer, deporte, meditar, etc.) y luego hacer análisis semanal.
+
+Decisión de hoy:
+
+No implementar todavía hábitos hasta avanzar más con el curso de Python.
+
+Dejarlo como mejora futura en el ROADMAP para una v2 del bot.
+
+Organización por meses vs semanas:
+
+Confirmado que es suficiente y más simple guardar los datos por meses (2026/febrero.json) y derivar la vista semanal en código.
+
+No hace falta cambiar la estructura de archivos a semanas.
+
+6. Resumen de la sesión
 He definido y documentado la estructura de datos del bot:
 
 Perfil de usuario.
 
 Categorías predefinidas.
 
-Formato de citas diarias/mensuales.
+Citas mensuales por día.
 
 He creado el esqueleto del código Python:
 
@@ -320,10 +387,12 @@ Menú principal (mostrar_menu).
 
 Primera función real de negocio (saludar_usuario leyendo JSON).
 
-Bucle main() que controlará todo el flujo del bot.
+Bucle main() que controlará el flujo general del bot.
 
-He usado Git como parte natural del trabajo:
+He usado Git como parte natural del trabajo, con varios commits pequeños, y he dejado el repositorio limpio al cerrar la sesión.
 
-Pensando ya en commits pequeños, claros y en dejar el repositorio siempre limpio al terminar la sesión.
+He dejado diseñadas, pero no implementadas aún, las ideas de:
 
-Esta sesión deja THDORA listo para, en próximas sesiones, empezar a implementar las operaciones reales sobre la agenda: agregar citas, listarlas por día/mes y guardarlas en los archivos JSON.
+Reflexión diaria dentro del JSON de agenda.
+
+Bloque de hábitos diarios y posible análisis semanal.
