@@ -13,6 +13,7 @@ Fecha: 2026-02-04
 # from funciones.guardar_datos import cargar_datos, guardar_datos
 import json
 
+
 def mostrar_menu():
     """
     Muestra el menú principal de THDORA
@@ -28,6 +29,7 @@ def mostrar_menu():
     print("5. Buscar cita")
     print("6. Salir")
     print("\n" + "-"*50)
+
 
 def saludar_usuario():
     """
@@ -46,6 +48,7 @@ def saludar_usuario():
     
     return nombre_usuario
 
+
 def main():
     """
     Función principal del bot
@@ -53,7 +56,8 @@ def main():
     # Diccionario en memoria para las citas (luego lo cargaremos de JSON)
     agenda = {}
     
-    print("\n🚀 Bienvenido a THDORA - Tu asistente de agenda personal")
+    # Saludo personalizado al iniciar
+    nombre_usuario = saludar_usuario()
     
     while True:
         mostrar_menu()
@@ -80,7 +84,7 @@ def main():
             # Aquí llamaremos a buscar_cita(agenda)
             
         elif opcion == "6":
-            print("\n👋 Hasta pronto, {nombre_usuario}! Tus citas están guardadas.")
+            print(f"\n👋 Hasta pronto, {nombre_usuario}! Tus citas están guardadas.")
             # Aquí llamaremos a guardar_datos(agenda)
             break
             
