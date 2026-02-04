@@ -1,0 +1,44 @@
+{
+  "categorias": [
+    {
+      "nombre": "estudio",
+      "emoji": "📚",
+      "color": "azul"
+    },
+    {
+      "nombre": "proyecto",
+      "emoji": "💻",
+      "color": "verde"
+    },
+    {
+      "nombre": "trabajo",
+      "emoji": "💼",
+      "color": "gris"
+    },
+    {
+      "nombre": "personal",
+      "emoji": "🏠",
+      "color": "amarillo"
+    },
+    {
+      "nombre": "deporte",
+      "emoji": "⚽",
+      "color": "rojo"
+    },
+    {
+      "nombre": "ocio",
+      "emoji": "🎮",
+      "color": "morado"
+    },
+    {
+      "nombre": "reunion",
+      "emoji": "👥",
+      "color": "naranja"
+    },
+    {
+      "nombre": "otros",
+      "emoji": "📌",
+      "color": "negro"
+    }
+  ]
+}
