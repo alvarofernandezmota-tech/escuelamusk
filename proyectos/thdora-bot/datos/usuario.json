@@ -1,0 +1,13 @@
+{
+  "nombre": "Álvaro",
+  "zona_horaria": "Europe/Madrid",
+  "creado_el": "2026-02-04",
+  "preferencias": {
+    "formato_hora": "24h",
+    "idioma": "es"
+  },
+  "estadisticas": {
+    "total_citas": 0,
+    "categoria_favorita": ""
+  }
+}
