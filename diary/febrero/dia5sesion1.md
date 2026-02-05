@@ -1,3 +1,17 @@
+# 📅 Diario Sesión 1 - Jueves 5 Febrero 2026
+**Escuela Musk - Módulo 2 Python - Tema 6: Funciones**
+
+---
+
+## ⏰ Horario Sesión 1
+
+**Inicio:** 12:45  
+**Fin:** 16:24  
+**Duración total:** 3h39m (vs 3h15m planeadas)
+
+**Estado:** ✅ SESIÓN COMPLETADA
+
+---
 
 ## 📚 BLOQUE 1: Organización y Preparación (12:45-13:30)
 
@@ -25,123 +39,243 @@
 
 **13:15-13:30: Sincronización Git (15min)**
 - ✅ `git pull origin main` → Descargado ejercicios-tema-6.py (210 líneas)
-- ✅ `git add` → 3 archivos locales nuevos:
-  - `diary/febrero/dia5sesion1.md`
-  - `Ejercicios tema 6.ipynb`
-  - `ejerccios_clase.py`
-- ✅ `git commit -m "docs: Añadir diario sesión 1 día 5 + ejercicios tema 6 extra"`
-- ✅ `git push origin main`
+- ✅ `git add` → 3 archivos locales nuevos
+- ✅ `git commit` + `git push`
 - ✅ Working tree limpio
 
-### 📋 Ejercicios preparados (7 total):
-1. **Filtrar números pares** - Función básica con listas
-2. **Argumentos variables** - `*args`
-3. **Retornar múltiples valores** - Tuplas
-4. **Argumento por defecto** - Parámetros opcionales
-5. **Funciones anidadas** - Inner functions
-6. **Cuadrado y raíz cuadrada** - Importar `math`
-7. **Ordenar valores** - Manipulación listas con `.sort()`
-
 ### 💭 Reflexiones del bloque:
-- ✅ Estrategia clara definida (no más repaso infinito)
+- ✅ Estrategia clara definida
 - ✅ Materiales listos para trabajar
 - ✅ Git workflow profesional aplicado
-- 💪 Listo para empezar teoría y práctica
 
 ---
 
-## 📺 BLOQUE 2: Video Teoría Tema 6 (13:30-14:30)
+## 📺 BLOQUE 2: Video Teoría Tema 6 (13:30-14:04)
 
-### ⏱️ Duración estimada: 1 hora
+### ⏱️ Duración: ~1h20m
 
 ### 🎯 Objetivo:
 - Ver video completo de funciones
-- Entender conceptos: `def`, parámetros, `return`, scope
+- Entender conceptos fundamentales
 - Preparar base teórica para ejercicios
 
-### 📝 Estado:
-🔄 **EN CURSO** (iniciado 13:30)
+### ✅ Conceptos cubiertos:
+- ✅ Definición de funciones (`def`)
+- ✅ Parámetros y argumentos
+- ✅ `return` vs `print`
+- ✅ Scope (ámbito de variables)
+- ✅ Argumentos por defecto
+- ✅ `*args` y `**kwargs`
+- ✅ Funciones anidadas
+- ✅ Anotaciones de tipo (`:int`, `:str`)
+- ✅ Docstrings
 
-### Conceptos a cubrir:
-- [ ] Definición de funciones (`def`)
-- [ ] Parámetros y argumentos
-- [ ] `return` y valores de retorno
-- [ ] Scope (ámbito de variables)
-- [ ] Argumentos por defecto
-- [ ] `*args` y `**kwargs`
-- [ ] Funciones anidadas
-- [ ] Docstrings
-
-**Notas del video:** (se completará al terminar)
-- _Pendiente..._
+### 📝 Notas tomadas:
+- ✅ Guardadas en `ejerccios_clase.py`
+- ✅ Ejemplos prácticos de cada concepto
+- ✅ Código funcional para referencia
 
 ---
 
-## 💻 BLOQUE 3: Resolver Ejercicios (14:30-16:00)
+## 💻 BLOQUE 3: Práctica y Ejercicios (14:04-16:24)
 
-### ⏱️ Duración estimada: 1h30m
+### ⏱️ Duración: 2h20m
 
 ### 🎯 Objetivo:
-- Resolver los 7 ejercicios del archivo `ejercicios-tema-6.py`
-- Aplicar conceptos del video
-- Escribir código pythónico desde el inicio
+- Aplicar conceptos aprendidos
+- Resolver ejercicios de práctica
+- Escribir funciones funcionales
 
-### 📋 Plan de resolución:
+### 📋 Ejercicios realizados (en ejerccios_clase.py):
 
-**Fase 1 (14:30-15:00): Ejercicios básicos**
-- [ ] Ejercicio 1: Filtrar pares
-- [ ] Ejercicio 2: `*args`
-- [ ] Ejercicio 3: Múltiples returns
+#### ✅ Ejercicio 1: Contador de vocales
+```python
+def contador_vocales(cadena:str):
+    vocales = 0
+    for x in cadena:
+        if x in "aeiou":
+            vocales+=1
+    return vocales
+```
+**Estado:** ✅ PERFECTO  
+**Funciona:** Sí  
+**Lógica:** Correcta  
+**Pythónico:** Aceptable
 
-**Fase 2 (15:00-15:30): Ejercicios intermedios**
-- [ ] Ejercicio 4: Default args
-- [ ] Ejercicio 5: Inner functions
+#### ⚠️ Ejercicio 2: Add item a lista
+```python
+def add_item(elementos:list, elemento):
+    elemento = int(input("introduce un elemento: "))
+    listax.append(elemento)
+    return listax
+```
+**Estado:** ⚠️ CON ERRORES  
+**Problemas identificados:**
+- Parámetro `elemento` sobrescrito
+- Usa variable global `listax` en vez del parámetro
+- Parámetro innecesario si se usa `input()` dentro
 
-**Fase 3 (15:30-16:00): Ejercicios avanzados**
-- [ ] Ejercicio 6: Math operations
-- [ ] Ejercicio 7: Sorting
+**Corrección necesaria:**
+```python
+def add_item(elementos:list):
+    elemento = int(input("introduce un elemento: "))
+    elementos.append(elemento)
+    return elementos
+```
 
-### ✅ Ejercicios completados:
-_Pendiente (se actualizará en tiempo real)_
+#### ⚠️ Ejercicio 3: Contar pares e impares
+```python
+def pares_y_impares(listaxx:list):
+    ocnt = 0
+    for i in listaxx:
+        if i % 2 == 0:
+            ocnt + 1  # ❌ No modifica ocnt
+    return ocnt
+```
+**Estado:** ⚠️ CON ERRORES  
+**Problemas identificados:**
+- `ocnt + 1` no asigna valor (falta `+=`)
+- Llamada sin argumentos: `pares_y_impares()`
+
+**Corrección necesaria:**
+```python
+def pares_y_impares(lista:list):
+    contador = 0
+    for i in lista:
+        if i % 2 == 0:
+            contador += 1  # ✅ Ahora sí suma
+    return contador
+
+print(pares_y_impares(listaxx))  # ✅ Pasar lista
+```
+
+---
+
+## 📊 Revisión YARVIS - Feedback Técnico
+
+### ✅ Fortalezas:
+- ✅ Tomaste notas completas de la clase
+- ✅ Intentaste 3 ejercicios propios
+- ✅ 1/3 ejercicios perfecto (contador vocales)
+- ✅ Entendiste conceptos básicos: `def`, parámetros, `return`
+- ✅ Usaste anotaciones de tipo
+- ✅ Git workflow correcto
+
+### ⚠️ Áreas de mejora:
+- ⚠️ 2/3 ejercicios con bugs
+- ⚠️ Confusión entre parámetros y variables globales
+- ⚠️ Olvidaste `+=` en contador (escribiste `ocnt + 1`)
+- ⚠️ No resolviste los 7 ejercicios oficiales de `ejercicios-tema-6.py`
+
+### 🎯 Diagnóstico:
+**Entiendes la teoría pero falta práctica en detalles.**
+
+### 📈 Calificación sesión: 7/10
+- ✅ Completaste 3h39m (objetivo cumplido)
+- ✅ Cubriste toda la teoría
+- ✅ Intentaste ejercicios
+- ⚠️ Errores en detalles de implementación
+- ⚠️ Faltan ejercicios oficiales por resolver
+
+---
+
+## 📋 Ejercicios oficiales pendientes (ejercicios-tema-6.py)
+
+### ⏳ Para Sesión 2:
+1. [ ] Ejercicio 1: Filtrar números pares
+2. [ ] Ejercicio 2: Argumentos variables `*args`
+3. [ ] Ejercicio 3: Retornar múltiples valores (tupla)
+4. [ ] Ejercicio 4: Argumento por defecto
+5. [ ] Ejercicio 5: Funciones anidadas (inner functions)
+6. [ ] Ejercicio 6: Cuadrado y raíz cuadrada (con `math`)
+7. [ ] Ejercicio 7: Ordenar valores
 
 ---
 
 ## 📊 Resumen Sesión 1
 
-### Tiempo invertido:
+### ⏱️ Tiempo invertido:
 - ✅ Organización: 45min (12:45-13:30)
-- 🔄 Video teoría: 1h (13:30-14:30) - EN CURSO
-- ⏳ Ejercicios: 1h30m (14:30-16:00) - PENDIENTE
-- **Total sesión:** 3h15m
+- ✅ Video teoría: 1h20m (13:30-14:04)
+- ✅ Ejercicios práctica: 2h20m (14:04-16:24)
+- **Total sesión:** 3h39m
 
-### Logros:
+### 🎯 Logros principales:
 - ✅ Estrategia de aprendizaje definida
-- ✅ 7 ejercicios preparados y sincronizados
+- ✅ Video teoría completo
+- ✅ Conceptos fundamentales entendidos
+- ✅ 3 ejercicios intentados (1 perfecto)
+- ✅ Notas de clase guardadas
 - ✅ Git workflow aplicado correctamente
-- ✅ Video teoría iniciado
-- ⏳ Ejercicios pendientes de resolver
 
-### Próximos pasos:
-1. Terminar video (14:30)
-2. Resolver 7 ejercicios (14:30-16:00)
-3. Paseo Thea (16:00-17:00)
-4. Sesión 2 Musk (17:00-20:00)
+### 📝 Conceptos dominados:
+- ✅ Sintaxis básica funciones (`def`)
+- ✅ Parámetros y argumentos
+- ✅ `return` vs `print`
+- ✅ Anotaciones de tipo
+- ⚠️ Scope de variables (requiere práctica)
+- ⚠️ Operadores de asignación (`+=` vs `+`)
+
+### 🔄 Conceptos a reforzar (Sesión 2):
+- ⚠️ Diferencia entre parámetros y variables globales
+- ⚠️ Operadores de asignación compuestos (`+=`, `-=`, etc.)
+- ⚠️ Paso de argumentos a funciones
+- 📝 Resolver los 7 ejercicios oficiales
+- 🔧 Refactorizar a código pythónico
+
+---
+
+## 🎯 Próximos pasos
+
+### Descanso (16:30-17:30):
+- 🐕 Paseo Thea (obligatorio)
+- 💧 Hidratación
+- 🍎 Snack saludable
+- 🌳 Aire fresco
+- ❌ NO pantallas
+
+### Sesión 2 (17:30-20:00):
+1. Corregir 2 ejercicios con errores
+2. Resolver 7 ejercicios oficiales `ejercicios-tema-6.py`
+3. Refactorizar todo a pythónico
+4. Consolidar conceptos con práctica
 
 ---
 
 ## 🔗 Enlaces
 
-- [📂 Ejercicios Tema 6](../modulo-2-fundamentos/tema-6-funciones/ejercicios-tema-6.py)
+- [📂 Ejercicios clase](../modulo-2-fundamentos/tema-6-funciones/ejerccios_clase.py)
+- [📝 Ejercicios oficiales](../modulo-2-fundamentos/tema-6-funciones/ejercicios-tema-6.py)
 - [📚 PDF Tema 6](../modulo-2-fundamentos/tema-6-funciones/M2-T6.pdf)
 - [📓 Notebook original](../modulo-2-fundamentos/tema-6-funciones/Ejercicios%20tema%206.ipynb)
-- [🏠 Repo Personal - Diario día 5](https://github.com/alvarofernandezmota-tech/personal/blob/main/diario/2026/02-febrero/2026-02-05.md)
 
 ---
 
-**Última actualización:** 5 febrero 2026, 13:40  
-**Estado:** Video en curso, ejercicios pendientes  
-**Próxima actualización:** 14:30 (tras video)
+## 💭 Reflexión final sesión
+
+**Positivo:**
+- Primera sesión con funciones completada
+- Teoría bien cubierta
+- Intentaste resolver ejercicios propios
+- No abandonaste pese a la mañana perdida
+- Recuperaste el día con tarde productiva
+
+**Aprendizajes:**
+- Los detalles importan (`+=` vs `+`)
+- Parámetros de funciones vs variables globales
+- Necesitas más práctica para consolidar
+
+**Siguiente paso:**
+- Descanso obligatorio
+- Volver con energía para Sesión 2
+- Resolver los 7 ejercicios oficiales
 
 ---
 
-💪 **SESIÓN 1 EN MARCHA. VIDEO EN CURSO. EJERCICIOS A LAS 14:30. ¡VAMOS!** 🔥
+**Última actualización:** 5 febrero 2026, 16:26  
+**Estado:** ✅ SESIÓN 1 COMPLETADA  
+**Próxima sesión:** 17:30 (Sesión 2)
+
+---
+
+💪 **SESIÓN 1 CERRADA. 3h39m COMPLETADAS. DESCANSA Y VUELVE FUERTE.** 🔥
