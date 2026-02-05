@@ -1,33 +1,3 @@
-# 📅 Diario Sesión 1 - Jueves 5 Febrero 2026
-**Escuela Musk - Módulo 2 Python**
-
----
-
-## ⏰ Horario Sesión 1
-
-**Inicio:** 12:45  
-**Fin estimado:** 16:00  
-**Duración total:** 3h15m
-
----
-
-## 📊 Contexto del día
-
-### Mañana (08:00-12:45)
-- ⚠️ Despertar: 08:00 (+2h tarde vs objetivo 06:00)
-- ⚠️ Dormir anoche: ~02:00 (hiperfoco nocturno)
-- ✅ 30min ejercicio + 15min paseo Thea + 15min desayuno
-- ⚠️ 1h audiolibro Séneca (procrastinación productiva)
-- ⚠️ 2h30m paseo largo (resistencia a empezar)
-- ❌ 0h Musk hasta 12:45
-
-### Situación al iniciar sesión
-- Mañana perdida por procrastinación
-- Decisión: Reconducir el día desde 12:45
-- Objetivo: Salvar el día con tarde productiva
-- Meta ajustada: 6-8h Musk si cumple plan tarde
-
----
 
 ## 📚 BLOQUE 1: Organización y Preparación (12:45-13:30)
 
