@@ -1,6 +1,6 @@
 # 📊 PROGRESO DEL CURSO - PYTHON PCAP
 
-> **Última actualización:** 29 enero 2026  
+> **Última actualización:** 5 febrero 2026  
 > **Alumno:** Álvaro Fernández Mota  
 > **Inicio curso:** Enero 2026
 
@@ -11,14 +11,14 @@
 | Módulo | Estado | Progreso | Fecha completado |
 |--------|--------|----------|------------------|
 | **Módulo 1** | ✅ Completado | 100% | Diciembre 2025 |
-| **Módulo 2** | 🔄 En progreso | 50% | - |
+| **Módulo 2** | 🔄 En progreso | 60% | - |
 | **Módulo 3** | ⏳ Pendiente | 0% | - |
 | **Módulo 4** | ⏳ Pendiente | 0% | - |
 | **Módulo 5** | ⏳ Pendiente | 0% | - |
 | **Módulo 6** | ⏳ Pendiente | 0% | - |
 | **Módulo 7** | ⏳ Pendiente | 0% | - |
 
-**Progreso total del curso:** 🟩🟩🟩🟩⬜⬜⬜⬜⬜⬜ **35%**
+**Progreso total del curso:** 🟩🟩🟩🟩🟩⬜⬜⬜⬜⬜ **40%**
 
 ---
 
@@ -37,7 +37,7 @@
 
 ## 📚 MÓDULO 2: Características básicas del lenguaje
 
-**Estado:** 🔄 **EN PROGRESO (50%)**  
+**Estado:** 🔄 **EN PROGRESO (60%)**  
 **Inicio:** Enero 2026
 
 ### 📖 TEMA 1: Números
@@ -155,13 +155,97 @@
 - ⏳ Sets y diccionarios
 - ⏳ Ejercicios de repaso del Tema 5
 
-### 📖 TEMA 6: Funciones
+### 📖 TEMA 6: Módulos y Imports
+**Estado:** 🔄 **INICIADO (10%)**  
+**Fecha inicio:** 5 febrero 2026
+
+#### ✅ Contenido Aprendido:
+- ✅ Diferencia entre `import` y `from...import`
+- ✅ Módulos estándar (datetime, json, os)
+- ✅ `datetime.strptime()` para convertir strings a fechas
+- ✅ Cálculos con datetime (resta de horas)
+- ✅ `os.path` para manejo de rutas
+- ✅ Concepto de módulo vs paquete
+
+#### 🎓 Conceptos del Tema 6:
+```python
+# Import completo
+import datetime
+fecha = datetime.datetime.now()
+
+# Import específico (recomendado)
+from datetime import datetime
+fecha = datetime.now()
+
+# Módulos usados en THDORA:
+- datetime → Fechas y horas
+- json → Guardar/cargar datos
+- os → Rutas de archivos
+```
+
+#### ⏳ Pendiente:
+- ⏳ Crear módulos propios
+- ⏳ Paquetes con `__init__.py`
+- ⏳ Ejercicios del Tema 6
+
+### 📖 TEMA 7: Funciones Avanzadas
 - ⏳ **Estado:** Pendiente
 - 📅 **Inicio estimado:** Febrero 2026
 
-### 📖 TEMA 7: Módulos y Paquetes
-- ⏳ **Estado:** Pendiente
-- 📅 **Inicio estimado:** Febrero 2026
+---
+
+## 🚀 PROYECTO THDORA
+
+### 📊 Sesión 5 Febrero 2026 (21:12 - 22:09)
+
+**Duración:** 57 minutos  
+**Tema:** Estructura de datos + Cálculo automático de minutos  
+**Archivos creados:**
+- ✅ `proyectos/thdora-bot/datos/thdora_data.py` (v0.3)
+- ✅ `proyectos/thdora-bot/SESION-2026-02-05.md`
+
+#### 🎯 Funcionalidad Implementada:
+
+**CRUD Completo:**
+- ✅ **Create:** `agregar_sesion(nombre, hora_inicio, hora_fin)`
+- ✅ **Read:** `ver_sesiones()`, `buscar_sesion(id)`
+- ✅ **Update:** `modificar_sesion(id, nuevo_nombre, nueva_hora_inicio, nueva_hora_fin)`
+- ✅ **Delete:** `eliminar_sesion(id)`
+
+**Características:**
+- ✅ Cálculo automático de minutos con `datetime`
+- ✅ Diccionarios anidados (macro diccionario)
+- ✅ Campo `nombre` en lugar de `proyecto` (más universal)
+- ✅ Parámetros opcionales en funciones
+- ✅ Validación de existencia de sesiones
+
+#### 🎓 Conceptos Aplicados:
+```python
+# 1. Diccionarios anidados
+thdora_data = {
+    'sesiones': [
+        {'id': 1, 'nombre': 'Musk', 'minutos': 219}
+    ]
+}
+
+# 2. Cálculo con datetime
+inicio = datetime.strptime('12:45', '%H:%M')
+fin = datetime.strptime('16:24', '%H:%M')
+minutos = int((fin - inicio).total_seconds() / 60)
+
+# 3. Parámetros opcionales
+def modificar(id, nombre=None, hora=None):
+    if nombre:
+        # modificar nombre
+```
+
+#### ⏳ Pendiente para mañana:
+- ⏳ Guardar datos en JSON
+- ⏳ Cargar datos desde JSON
+- ⏳ Validaciones (hora_fin > hora_inicio)
+- ⏳ Fecha automática
+
+**Progreso THDORA:** 40% ████░░░░░░
 
 ---
 
@@ -172,6 +256,8 @@
   - Polimorfismo
 - ⏳ **Ejercicios prácticos:** Pendiente
 - 📅 **Inicio estimado:** Marzo 2026
+
+**Decisión THDORA:** Usar diccionarios por ahora, migrar a clases en Tema 9-10
 
 ---
 
@@ -190,13 +276,15 @@
 - ✅ Dominar import math (Enero 2026)
 - ✅ Completar Tema 4 al 100% (22 enero 2026)
 - ✅ Iniciar Tema 5 (Listas y Tuplas) (22-26 enero 2026)
+- ✅ Iniciar Tema 6 (Módulos) aplicado a THDORA (5 febrero 2026)
 
 ### 🎯 Objetivos Actuales:
-- 🔄 Completar ejercicios finales Tema 5 (Semana del 27 enero - 2 febrero)
-- 🔄 Ejercicios de repaso Módulo 5 (29 enero 2026)
-- 🎯 Estudiar Sets y Diccionarios
+- 🔄 Proyecto THDORA - Capa de datos (5 febrero 2026)
+- 🔄 Aplicar Tema 6 en proyecto real
+- 🎯 Completar JSON en THDORA (6 febrero 2026)
 
 ### 📅 Objetivos a Corto Plazo (1 mes):
+- 🎯 Completar THDORA v1.0 funcional (Febrero 2026)
 - 🎯 Completar Módulo 2 completo (Febrero 2026)
 - 🎯 Dominar listas, tuplas, diccionarios y sets
 
@@ -215,62 +303,77 @@
 - **Total:** 31 ejercicios
 - **Tema 4 (Bucles):** 20 ejercicios
 - **Tema 5 (Listas/Tuplas):** 11 ejercicios
-- **Otros temas:** Pendiente contabilizar
+- **Proyecto THDORA:** 5 funciones CRUD
 
 ### Commits en GitHub:
-- **Total:** 20+ commits
-- **Último commit:** 26 enero 2026 (Ejercicios 8-11 tema 5)
+- **Total:** 25+ commits
+- **Último commit:** 5 febrero 2026 (THDORA v0.3 + documentación)
 
 ### Tiempo de Estudio:
 - **Inicio:** Enero 2026
-- **Días activos:** ~15 días
-- **Sesión 22 enero:** 4 horas
-- **Sesión 23 enero:** 5 horas
-- **Sesión 26 enero:** 2 horas
-- **Total última semana:** 11 horas
+- **Días activos:** ~20 días
+- **Sesión 5 febrero (THDORA):** 57 minutos
+- **Total 5 febrero:** 6.6 horas (Musk 3.7h + ML 2h + THDORA 1h)
+
+### Progreso por Tema:
+- **Tema 1-3:** ✅ 100%
+- **Tema 4:** ✅ 100%
+- **Tema 5:** 🔄 50%
+- **Tema 6:** 🔄 10%
+- **Tema 7+:** ⏳ 0%
 
 ---
 
 ## 🚀 PRÓXIMOS PASOS
 
-**Hoy (29 enero):**
-1. 🔄 Ejercicios de repaso Módulo 5
-2. ⏳ Completar ejercicios 12-14 (si hay tiempo)
+**Mañana (6 febrero):**
+1. 🎯 Completar JSON en THDORA
+2. 🎯 Hacer ejercicios prácticos de Tema 6
+3. 🎯 Probar guardar/cargar datos
 
-**Esta semana (29 enero - 2 febrero):**
-1. ⏳ Completar todos los ejercicios Tema 5
-2. ⏳ Estudiar Sets y Diccionarios
-3. ⏳ Ejercicios de consolidación Tema 5
+**Esta semana (6-9 febrero):**
+1. ⏳ THDORA funcionando con persistencia
+2. ⏳ Agregar validaciones
+3. ⏳ Bot de Telegram básico
 
-**Próxima semana (3-9 febrero):**
-1. ⏳ Empezar Tema 6 (Funciones)
-2. ⏳ Ejercicios Tema 6
+**Próxima semana (10-16 febrero):**
+1. ⏳ Completar Tema 5 (sets y diccionarios)
+2. ⏳ Ejercicios de consolidación
+3. ⏳ THDORA v1.0 completo
 
 ---
 
 ## 💪 NOTAS MOTIVACIONALES
 
-> "Cada ejercicio completado es un paso más cerca del PCAP"
+> "Aprender haciendo proyectos reales es 10 veces más efectivo"
 
 **Logros recientes:**
 - 🎉 Tema 4 completado al 100%
 - 🎉 11 ejercicios de listas y tuplas dominados
-- 🎉 Clase completa de POO avanzado
-- 🎉 Código limpio y profesional en GitHub
-- 🎉 50% del Módulo 2 completado
+- 🎉 **THDORA iniciado con éxito**
+- 🎉 Aplicando Tema 6 en proyecto real
+- 🎉 CRUD completo implementado
+- 🎉 60% del Módulo 2 completado
+- 🎉 Aprendizaje práctico y efectivo
 
 **Recordatorios:**
-- ✅ Estás en el módulo más importante (Módulo 2)
-- ✅ Ya dominas bucles, la parte más difícil
-- ✅ Listas y tuplas casi dominadas
-- ✅ Avanzas a buen ritmo constante
-- ✅ Tu código está bien estructurado y profesional
+- ✅ THDORA es tu proyecto estrella para el portfolio
+- ✅ Estás aprendiendo teoría + práctica al mismo tiempo
+- ✅ Cada sesión de THDORA repasa conceptos clave
+- ✅ Tu código está profesional y bien documentado
+- ✅ Progreso constante = éxito garantizado
+
+**Decisiones inteligentes tomadas:**
+- ✅ Diccionarios antes que clases (escalable)
+- ✅ Campo "nombre" universal
+- ✅ Cálculo automático de minutos
+- ✅ Documentación completa de cada sesión
 
 ---
 
-**🚀 ¡Sigue así! Estás haciendo un gran trabajo.**
+**🚀 ¡Excelente sesión! THDORA está tomando forma.**
 
 ---
 
-_Última actualización: 29 enero 2026, 16:00 CET_  
-_Próxima revisión: Cuando completes el Tema 5_
+_Última actualización: 5 febrero 2026, 22:10 CET_  
+_Próxima revisión: Después de sesión THDORA mañana_
