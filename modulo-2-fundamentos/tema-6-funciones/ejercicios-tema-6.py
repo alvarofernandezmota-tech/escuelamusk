@@ -1,0 +1,210 @@
+"""
+EJERCICIOS TEMA 6 - FUNCIONES
+Módulo 2 Python - Escuela Musk
+Autor: Álvaro Fernández Mota
+Fecha: 5 febrero 2026
+
+Instrucciones: Resuelve cada ejercicio creando las funciones requeridas
+"""
+
+# ==============================================================================
+# EJERCICIO 1: Filtrar números pares
+# ==============================================================================
+"""
+Haz un programa que cree una función en Python que dada una secuencia 
+devuelva únicamente los números pares.
+
+Input: [5, 7, 3, 4, 2, 1]
+Output: [4, 2]
+"""
+
+# Tu código aquí:
+
+
+
+
+# Prueba tu función:
+# numeros = [5, 7, 3, 4, 2, 1]
+# resultado = tu_funcion(numeros)
+# print(resultado)  # Debe imprimir: [4, 2]
+
+
+# ==============================================================================
+# EJERCICIO 2: Función con argumentos variables (*args)
+# ==============================================================================
+"""
+Haz un programa que cree una función con longitud variable de argumentos.
+La función debe imprimir cada argumento recibido.
+
+Input: func1(20, 40, 60)
+Output:
+20
+40
+60
+"""
+
+# Tu código aquí:
+
+
+
+
+# Prueba tu función:
+# func1(20, 40, 60)
+
+
+# ==============================================================================
+# EJERCICIO 3: Retornar múltiples valores
+# ==============================================================================
+"""
+Haz un programa que devuelva múltiples valores desde una función.
+Crea la función calculation() de modo que pueda aceptar dos variables 
+y calcular sumas y restas. Además, debe devolver tanto la suma como 
+la resta en una sola llamada.
+
+Input: 40, 10
+Output: (50, 30)
+"""
+
+# Tu código aquí:
+
+
+
+
+# Prueba tu función:
+# resultado = calculation(40, 10)
+# print(resultado)  # Debe imprimir: (50, 30)
+
+
+# ==============================================================================
+# EJERCICIO 4: Argumento con valor por defecto
+# ==============================================================================
+"""
+Haz un programa que cree una función con un argumento por defecto.
+
+Crea una función show_employee() usando las siguientes condiciones:
+- Debe aceptar el nombre y el salario del empleado y mostrar ambos.
+- Si falta el salario en la llamada de función, asigne el valor 
+  predeterminado 9000 al salario.
+
+Input:
+show_employee("Ben", 12000)
+show_employee("Jessa")
+
+Output:
+Name: Ben salary: 12000
+Name: Jessa salary: 9000
+"""
+
+# Tu código aquí:
+
+
+
+
+# Prueba tu función:
+# show_employee("Ben", 12000)
+# show_employee("Jessa")
+
+
+# ==============================================================================
+# EJERCICIO 5: Funciones anidadas (inner function)
+# ==============================================================================
+"""
+Haz un programa que cree una función interna para calcular la suma 
+de la siguiente manera:
+
+- Crea una función externa que acepte dos parámetros, a y b.
+- Crea una función interna dentro de una función externa que calculará 
+  la suma de a y b.
+- Por último, la función externa debe sumar 5 al resultado de la suma 
+  y devolverlo.
+
+Input: 5, 10
+Output: 20
+
+Nota: 5 + 10 = 15, luego 15 + 5 = 20
+"""
+
+# Tu código aquí:
+
+
+
+
+# Prueba tu función:
+# resultado = outer_fun(5, 10)
+# print(resultado)  # Debe imprimir: 20
+
+
+# ==============================================================================
+# EJERCICIO 6: Cuadrado y raíz cuadrada de una lista
+# ==============================================================================
+"""
+Haz un programa que cree dos funciones:
+1. Una que calcule el cuadrado de cada número de una lista
+2. Otra que calcule la raíz cuadrada de cada número de una lista
+
+Input: [10, 4, 1, 15]
+
+Output:
+[100, 16, 1, 225]
+[3.1622776601683795, 2.0, 1.0, 3.872983346207417]
+
+Pista: Usa import math y la función math.sqrt()
+"""
+
+# Tu código aquí:
+
+
+
+
+# Prueba tus funciones:
+# numeros = [10, 4, 1, 15]
+# cuadrados = compute_square(numeros)
+# raices = compute_sqrt(numeros)
+# print(cuadrados)
+# print(raices)
+
+
+# ==============================================================================
+# EJERCICIO 7: Ordenar tres valores
+# ==============================================================================
+"""
+Haz un programa que cree una función que ordene tres valores (a, b, c) 
+de menor a mayor.
+
+Por ejemplo, si a=7, b=-3 y c=1, los valores después de la llamada 
+deben ser a=-3, b=1 y c=7.
+
+Input: 7, -3, 1
+Output: [-3, 1, 7]
+
+Pista: Puedes recibir los 3 valores como lista o individualmente, 
+y retornar una lista ordenada.
+"""
+
+# Tu código aquí:
+
+
+
+
+# Prueba tu función:
+# valores = [7, -3, 1]
+# ordenados = sort_values(valores)
+# print(ordenados)  # Debe imprimir: [-3, 1, 7]
+
+
+# ==============================================================================
+# NOTAS FINALES
+# ==============================================================================
+"""
+Consejos para resolver los ejercicios:
+
+1. Lee bien el enunciado y entiende qué se pide
+2. Piensa en los parámetros que necesita tu función
+3. Piensa en qué debe retornar (si es que retorna algo)
+4. Escribe primero la estructura básica: def nombre_funcion(parametros):
+5. Implementa la lógica dentro de la función
+6. Prueba tu función con los casos de ejemplo
+7. Si funciona, intenta hacer el código más "pythónico"
+
+¡Éxito con los ejercicios!
+"""
