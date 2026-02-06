@@ -1,81 +1,137 @@
 # THDORA Bot 📅
 
-**Bot de gestión de agenda personal**
+**Gestor de citas y productividad personal**
 
-## Descripción
+## 🎯 Descripción
 
-THDORA es un bot de gestión de citas y horarios desarrollado como proyecto práctico del curso de Python. Integra todos los conceptos aprendidos: listas, diccionarios, bucles, funciones, manejo de archivos JSON y Git.
+THDORA es un proyecto educativo open-source para aprender Python desde cero, construyendo un gestor completo de tiempo y productividad.
 
-## Funcionalidades
+**Características:**
+- 📅 Planificación futura (citas, eventos)
+- ⏱️ Tracking pasado (sesiones completadas)
+- 📊 Análisis y estadísticas
+- 📝 Open source (aprendizaje documentado)
 
-### Versión 1.0 (En desarrollo)
+---
 
-- ✅ Agregar cita (fecha, hora, descripción)
-- ✅ Ver citas del día
-- ✅ Ver citas del mes
-- ✅ Eliminar cita
-- ✅ Buscar cita por palabra clave
-- ✅ Guardar automáticamente en JSON
+## 📚 Aprendizaje progresivo
 
-### Futuras versiones
+Este proyecto se construye **paso a paso** con ejercicios documentados.
 
-- 🔲 Recordatorios automáticos
-- 🔲 Categorías de citas
-- 🔲 Exportar a calendario
-- 🔲 Integración con THEA IA
+Cada ejercicio enseña conceptos Python específicos:
+- Diccionarios y listas
+- Funciones con parámetros
+- Persistencia con JSON
+- Manejo de fechas (datetime)
+- Interfaz CLI
 
-## Estructura del proyecto
+**Ver ejercicios:** [`docs/ejercicios/`](./docs/ejercicios/)
+
+---
+
+## 📁 Estructura del proyecto
 
 ```
 thdora-bot/
-├── README.md              ← Este archivo
-├── main.py                ← Punto de entrada (menú principal)
-├── funciones/             ← Módulo de funciones
-│   ├── __init__.py
-│   ├── agregar_cita.py
-│   ├── eliminar_cita.py
-│   ├── mostrar_citas.py
-│   ├── buscar_cita.py
-│   └── guardar_datos.py
-└── datos/                 ← Archivos JSON por mes
-    └── 2026/
-        ├── enero.json
-        ├── febrero.json
-        └── ...
+├── README.md                  ← Este archivo
+├── ROADMAP.md                 ← Plan de desarrollo
+├── main.py                    ← Interfaz CLI (futuro)
+│
+├── docs/                      ← Documentación
+│   ├── conceptos/             ← Teoría Python
+│   ├── ejercicios/            ← Ejercicios paso a paso
+│   ├── arquitectura/          ← Diseño del sistema
+│   └── sesiones/              ← Diario de desarrollo
+│
+├── src/                       ← Código fuente
+│   ├── thdora_data.py         ← Diccionario + funciones
+│   └── snapshots/             ← Progreso documentado
+│       ├── v01_diccionario.py ← Versión 0.1
+│       ├── v02_agregar.py     ← Versión 0.2
+│       └── ...                ← Más versiones
+│
+└── datos/                     ← JSON (futuro)
 ```
 
-## Estructura de datos
+---
 
-Las citas se guardan en formato JSON organizadas por mes:
+## 🚀 Inicio rápido
 
-```json
-{
-  "04": [
-    {"hora": "15:30", "descripcion": "Estudiar Python funciones"},
-    {"hora": "19:30", "descripcion": "Sesión 2 - planificar THDORA"}
-  ],
-  "05": [
-    {"hora": "10:00", "descripcion": "Reunión proyecto"}
-  ]
-}
-```
-
-## Uso
+### Probar el código actual
 
 ```bash
-python main.py
+# Clonar repositorio
+git clone https://github.com/alvarofernandezmota-tech/escuelamusk.git
+cd escuelamusk/proyectos/thdora-bot
+
+# Ejecutar versión actual
+python src/thdora_data.py
 ```
 
-## Tecnologías
+### Seguir los ejercicios
 
-- Python 3.x
-- JSON (persistencia de datos)
-- Git (control de versiones)
+1. Lee el [índice de ejercicios](./docs/ejercicios/README.md)
+2. Empieza por el [Ejercicio 1](./docs/ejercicios/01-diccionario-base.md)
+3. Cada ejercicio incluye:
+   - Conceptos a aprender
+   - Especificaciones
+   - Solución documentada
+   - Testing
 
-## Autor
+---
 
-Álvaro Fernández Mota - Proyecto práctico de EscuelaMusk
+## 📊 Progreso actual
 
-## Versión
+**Versión:** v0.1  
+**Estado:** En desarrollo  
+**Última actualización:** 6 febrero 2026
 
-**v0.1.0** - Estructura inicial (2026-02-04)
+### Completado ✅
+- [x] Estructura de proyecto
+- [x] Diccionario base
+- [x] Ejercicio 1 documentado
+
+### En progreso ⏳
+- [ ] Ejercicio 2: agregar_cita()
+- [ ] Ejercicio 3: ver_citas()
+- [ ] Ejercicio 4: buscar_cita()
+
+**Ver plan completo:** [ROADMAP.md](./ROADMAP.md)
+
+---
+
+## 📚 Recursos
+
+- **Ejercicios:** [`docs/ejercicios/`](./docs/ejercicios/)
+- **Conceptos Python:** [`docs/conceptos/`](./docs/conceptos/)
+- **Arquitectura:** [`docs/arquitectura/`](./docs/arquitectura/)
+- **Sesiones:** [`docs/sesiones/`](./docs/sesiones/)
+
+---
+
+## 👥 Contribuir
+
+Este es un proyecto educativo open-source.
+
+**Ideas para contribuir:**
+- Mejorar documentación de ejercicios
+- Añadir nuevos ejercicios
+- Crear diagramas explicativos
+- Reportar errores
+
+---
+
+## 📄 Licencia
+
+MIT License - Proyecto educativo
+
+---
+
+## ✍️ Autor
+
+**Álvaro Fernández Mota**  
+Proyecto práctico de [EscuelaMusk](https://github.com/alvarofernandezmota-tech/escuelamusk)
+
+---
+
+**🎓 Aprende Python construyendo proyectos reales, paso a paso.**

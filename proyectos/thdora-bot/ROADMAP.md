@@ -1,146 +1,188 @@
-# THDORA Bot - Roadmap de Desarrollo
+# THDORA Bot - Roadmap
 
-## Fases de Desarrollo
+## 🎯 Visión del proyecto
 
-### 🟢 Fase 0: Estructura inicial (COMPLETADO - 2026-02-04)
+**THDORA = Gestor completo de tiempo y productividad**
 
-- [x] Crear estructura de carpetas
-- [x] README.md del proyecto
-- [x] main.py con menú básico
-- [x] Carpeta funciones/ con __init__.py
-- [x] Carpeta datos/2026/ con ejemplo febrero.json
-- [x] ROADMAP.md
+Un proyecto educativo open-source para aprender Python construyendo una aplicación real, desde cero, paso a paso.
 
 ---
 
-### 🟡 Fase 1: Funciones básicas de manejo de datos
+## 📊 Fases de desarrollo
 
-**Objetivo:** Aprender funciones mientras construimos las bases del bot
+### FASE 1: Fundamentos (Semana 1) ⏳
 
-#### 1.1 - Función cargar_datos()
-- [ ] Crear `funciones/guardar_datos.py`
-- [ ] Implementar `cargar_datos(mes, año)` que:
-  - Lee el archivo JSON correspondiente
-  - Devuelve un diccionario con las citas
-  - Maneja el caso de que el archivo no exista
-- [ ] Documentar con docstring
-- [ ] Probar manualmente
+**Objetivo:** Diccionario + CRUD básico funcionando
 
-#### 1.2 - Función guardar_datos()
-- [ ] Implementar `guardar_datos(agenda, mes, año)` que:
-  - Guarda el diccionario en JSON
-  - Crea la carpeta si no existe
-  - Sobrescribe el archivo existente
-- [ ] Documentar con docstring
-- [ ] Probar guardando y cargando datos
+**Ejercicios:**
+- [x] 1. Diccionario base (20 min)
+- [ ] 2. agregar_cita() (30 min)
+- [ ] 3. ver_citas() (20 min)
+- [ ] 4. buscar_cita() (25 min)
+- [ ] 5. eliminar_cita() (20 min)
+- [ ] 6. modificar_cita() (30 min)
+- [ ] 7. guardar_json() (25 min)
+- [ ] 8. cargar_json() (25 min)
 
----
+**Entregable:** THDORA v0.1 funcional básico (sin menú todavía)
 
-### 🟡 Fase 2: Agregar citas
-
-**Objetivo:** Practicar funciones con parámetros y validación de datos
-
-#### 2.1 - Función agregar_cita()
-- [ ] Crear `funciones/agregar_cita.py`
-- [ ] Implementar `agregar_cita(agenda, dia, hora, descripcion)` que:
-  - Añade una cita al diccionario
-  - Valida que hora tenga formato correcto (HH:MM)
-  - Valida que día sea válido (01-31)
-  - Crea la lista del día si no existe
-- [ ] Integrar en main.py (opción 1)
-- [ ] Probar agregando varias citas
+**Tiempo estimado:** 3-4 horas
 
 ---
 
-### 🟡 Fase 3: Mostrar citas
+### FASE 2: Interfaz CLI (Semana 1-2)
 
-**Objetivo:** Practicar bucles y formateo de salida
+**Objetivo:** Menú interactivo funcionando
 
-#### 3.1 - Función mostrar_citas_dia()
-- [ ] Crear `funciones/mostrar_citas.py`
-- [ ] Implementar `mostrar_citas_dia(agenda, dia)` que:
-  - Muestra todas las citas de un día
-  - Ordena por hora
-  - Formato bonito con emojis
-- [ ] Integrar en main.py (opción 2)
+**Ejercicios:**
+- [ ] 9. Menú CLI (40 min)
+- [ ] 10. Integración completa (30 min)
+- [ ] 11. Testing y bugs (30 min)
 
-#### 3.2 - Función mostrar_citas_mes()
-- [ ] Implementar `mostrar_citas_mes(agenda)` que:
-  - Muestra todas las citas del mes
-  - Agrupa por día
-  - Cuenta total de citas
-- [ ] Integrar en main.py (opción 3)
+**Entregable:** THDORA v0.2 CLI funcional completo
+
+**Tiempo estimado:** 2 horas
 
 ---
 
-### 🟡 Fase 4: Eliminar y buscar citas
+### FASE 3: Funciones avanzadas (Semana 2)
 
-**Objetivo:** Practicar manipulación de estructuras de datos
+**Objetivo:** Categorías, sesiones, estadísticas
 
-#### 4.1 - Función eliminar_cita()
-- [ ] Crear `funciones/eliminar_cita.py`
-- [ ] Implementar `eliminar_cita(agenda, dia, hora)` que:
-  - Elimina una cita específica
-  - Maneja el caso de que no exista
-  - Confirma antes de eliminar
-- [ ] Integrar en main.py (opción 4)
+**Nuevas funcionalidades:**
+- [ ] Añadir categorías
+- [ ] Sistema de sesiones (tracking pasado)
+- [ ] Estadísticas básicas
+- [ ] Filtros avanzados
+- [ ] Búsqueda por fecha
 
-#### 4.2 - Función buscar_cita()
-- [ ] Crear `funciones/buscar_cita.py`
-- [ ] Implementar `buscar_cita(agenda, palabra_clave)` que:
-  - Busca en todas las descripciones
-  - Devuelve lista de resultados con día y hora
-  - Búsqueda case-insensitive
-- [ ] Integrar en main.py (opción 5)
+**Entregable:** THDORA v0.3 con tracking
+
+**Tiempo estimado:** 4-5 horas
 
 ---
 
-### 🟡 Fase 5: Integración y persistencia
+### FASE 4: Telegram Bot (Semana 3-4)
 
-**Objetivo:** Unir todas las funciones y que persistan los datos
+**Objetivo:** Bot Telegram funcionando
 
-- [ ] Modificar main.py para cargar datos al inicio
-- [ ] Guardar automáticamente después de cada operación
-- [ ] Crear función de utilidad para obtener fecha actual
-- [ ] Mejorar manejo de errores
-- [ ] Probar flujo completo: agregar → ver → buscar → eliminar
+**Pasos:**
+- [ ] Setup python-telegram-bot
+- [ ] Comandos básicos (/start, /help)
+- [ ] Agregar/ver citas desde Telegram
+- [ ] Conversaciones interactivas
+- [ ] Notificaciones
+- [ ] Deploy (servidor/cloud)
 
----
+**Entregable:** THDORA v1.0 Bot en Telegram
 
-### 🔵 Fase 6: Mejoras y optimizaciones
-
-**Objetivo:** Refinar el código y añadir extras
-
-- [ ] Validación avanzada de fechas (días inválidos según mes)
-- [ ] Exportar citas a TXT
-- [ ] Estadísticas (día con más citas, etc.)
-- [ ] Menú de configuración
-- [ ] Tests unitarios básicos
+**Tiempo estimado:** 10-15 horas
 
 ---
 
-### 🔵 Fase 7: Integración con THEA IA (Futuro)
+### FASE 5: Integración THEA IA (Futuro)
 
-**Objetivo:** Migrar funcionalidades a THEA IA
+**Objetivo:** Integración con ecosistema THEA IA
 
-- [ ] Analizar código de THEA IA (AgendaAgent)
-- [ ] Adaptar funciones de THDORA a la arquitectura de THEA
-- [ ] Integrar con base de datos PostgreSQL
-- [ ] Añadir persistencia multi-usuario
+**Funcionalidades:**
+- [ ] Migración JSON → PostgreSQL
+- [ ] API REST
+- [ ] Sincronización con Google Calendar
+- [ ] IA para sugerencias de horarios
+- [ ] Análisis de productividad avanzado
+
+**Entregable:** THDORA v2.0 integrado con THEA IA
 
 ---
 
-## Convenciones de commits
+## 📊 Progreso actual
 
-- `feat:` Nueva funcionalidad
-- `fix:` Corrección de bug
-- `docs:` Cambios en documentación
-- `refactor:` Mejora de código sin cambiar funcionalidad
-- `test:` Añadir o modificar tests
+```
+█░░░░░░░░░ 10% FASE 1
+░░░░░░░░░░  0% FASE 2
+░░░░░░░░░░  0% FASE 3
+░░░░░░░░░░  0% FASE 4
+```
 
-## Notas
+**Última actualización:** 6 febrero 2026
 
-- Cada fase se completa **antes** de pasar a la siguiente
-- Cada función se prueba **manualmente** antes de integrarla
-- Se documenta en `diary/` el progreso de cada sesión
-- Commits frecuentes y descriptivos
+---
+
+## 📖 Ejercicios completados
+
+| # | Ejercicio | Conceptos | Fecha | Estado |
+|---|-----------|-----------|-------|--------|
+| 1 | Diccionario base | Diccionarios, listas | 2026-02-06 | ✅ |
+| 2 | agregar_cita() | Funciones, parámetros | - | ⏳ |
+| 3 | ver_citas() | Bucles, formateo | - | ⏳ |
+| 4 | buscar_cita() | Búsqueda | - | ⏳ |
+| 5 | eliminar_cita() | Métodos de listas | - | ⏳ |
+| 6 | modificar_cita() | Parámetros opcionales | - | ⏳ |
+| 7 | guardar_json() | JSON, archivos | - | ⏳ |
+| 8 | cargar_json() | Excepciones | - | ⏳ |
+| 9 | Menú CLI | while, input | - | ⏳ |
+| 10 | Integración | Testing | - | ⏳ |
+
+---
+
+## 🎯 Objetivos de aprendizaje
+
+### Python básico
+- [x] Diccionarios
+- [ ] Listas y métodos
+- [ ] Funciones con parámetros
+- [ ] Bucles (for, while)
+- [ ] Condicionales
+- [ ] F-strings
+
+### Python intermedio
+- [ ] Lectura/escritura JSON
+- [ ] Manejo de excepciones
+- [ ] Módulos e imports
+- [ ] Fechas con datetime
+- [ ] List comprehensions
+
+### Python avanzado
+- [ ] APIs REST
+- [ ] Bases de datos (PostgreSQL)
+- [ ] Testing (unittest)
+- [ ] Telegram Bot API
+- [ ] Deploy en servidor
+
+### Herramientas
+- [x] Git y GitHub
+- [ ] VS Code
+- [ ] Terminal/CLI
+- [ ] PostgreSQL
+- [ ] Docker (futuro)
+
+---
+
+## 📚 Documentación
+
+Cada fase está completamente documentada:
+
+- **Ejercicios:** [`docs/ejercicios/`](./docs/ejercicios/)
+- **Conceptos:** [`docs/conceptos/`](./docs/conceptos/)
+- **Arquitectura:** [`docs/arquitectura/`](./docs/arquitectura/)
+- **Sesiones:** [`docs/sesiones/`](./docs/sesiones/)
+
+---
+
+## 🚀 Siguiente paso
+
+**Ejercicio 2:** Crear función `agregar_cita()`
+
+**Conceptos:**
+- Funciones con parámetros
+- Parámetros por defecto
+- Método `.append()`
+- Generación de IDs
+
+**Tiempo:** 30 minutos
+
+---
+
+**Proyecto:** THDORA Bot v0.1  
+**Autor:** Álvaro Fernández Mota  
+**Inicio:** 6 febrero 2026
