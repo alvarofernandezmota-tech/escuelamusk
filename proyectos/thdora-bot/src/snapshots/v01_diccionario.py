@@ -24,14 +24,19 @@ thdora_data = {
     'citas': []  # Lista vacía de citas
 }
 
-# Ejemplo de cita (estructura):
-# {
-#     'id': 1,
-#     'titulo': 'Dentista',
-#     'fecha': '2026-02-10',
-#     'hora': '10:00',
-#     'descripcion': 'Revisión anual'
-# }
+# ==========================================
+# ESTRUCTURA DE UNA CITA (futuro)
+# ==========================================
+"""
+{
+    'id': 1,
+    'nombre': 'Dentista',           # Nombre de LA CITA
+    'fecha': '2026-02-10',          # YYYY-MM-DD
+    'hora_inicio': '10:00',         # HH:MM
+    'hora_fin': '11:00',            # HH:MM
+    'descripcion': 'Revisión anual'
+}
+"""
 
 
 if __name__ == "__main__":

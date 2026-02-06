@@ -1,31 +1,72 @@
 # 📝 EJERCICIO 1: Diccionario Base
 
 ![Dificultad](https://img.shields.io/badge/Dificultad-Básica-green)
-![Tiempo](https://img.shields.io/badge/Tiempo-20min-blue)
+![Tiempo](https://img.shields.io/badge/Tiempo-20_30min-blue)
 
 ---
 
-## 🎯 Objetivo
+## 🎯 OBJETIVO
 
 Crear el diccionario base de THDORA con una lista vacía de citas.
 
+**Resultado esperado:**
+```python
+thdora_data = {
+    'citas': []
+}
+```
+
 ---
 
-## 📚 Conceptos previos
+## 🔗 CONCEPTOS MUSK RELACIONADOS
+
+**Módulo:** 3 - Estructuras de datos  
+**Apuntes:** `apuntes/modulo-3-estructuras.md`  
+**Ejercicios previos:** `ejercicios/modulo-3/diccionarios.py`
+
+**Repasa antes:**
+- ¿Qué es un diccionario?
+- ¿Cómo crear un diccionario vacío?
+- ¿Qué es una lista?
+- ¿Cómo crear una lista vacía?
+
+---
+
+## 📚 CONCEPTOS PREVIOS
 
 ### 🔹 ¿Qué es un diccionario?
 
-Un diccionario es una estructura de datos que almacena pares **clave-valor**.
+Un diccionario es como una **agenda telefónica**:
+- Tienes NOMBRES (claves)
+- Cada nombre tiene un VALOR asociado
 
 ```python
-# Sintaxis básica
-persona = {
-    'nombre': 'Álvaro',    # clave: 'nombre', valor: 'Álvaro'
-    'edad': 25           # clave: 'edad', valor: 25
+# Ejemplo simple
+agenda = {
+    'María': '612345678',
+    'Pedro': '698765432'
 }
 
-# Acceder a valores
-print(persona['nombre'])  # Output: Álvaro
+# Acceder a un valor
+print(agenda['María'])  # Output: 612345678
+```
+
+### 🔹 ¿Qué es una lista?
+
+Una lista es como una **fila de personas**:
+- Puede estar vacía: `[]`
+- Puede tener elementos: `['Ana', 'Luis', 'Eva']`
+- Puedes agregar más: `lista.append('Juan')`
+
+```python
+# Ejemplos
+lista_vacia = []
+lista_numeros = [1, 2, 3, 4, 5]
+lista_nombres = ['Ana', 'Luis']
+
+# Añadir elemento
+lista_nombres.append('Eva')
+print(lista_nombres)  # ['Ana', 'Luis', 'Eva']
 ```
 
 ### 🔹 Diccionario con lista dentro
@@ -47,7 +88,7 @@ print(datos['numeros'])  # [1, 2, 3, 4]
 
 ---
 
-## 📋 Especificaciones
+## 📋 ESPECIFICACIONES
 
 ### Diccionario a crear:
 
@@ -62,53 +103,165 @@ thdora_data = {
 ```python
 {
     'id': 1,
-    'titulo': 'Dentista',
-    'fecha': '2026-02-10',      # Formato: YYYY-MM-DD
-    'hora': '10:00',            # Formato: HH:MM
-    'descripcion': 'Revisión anual'
+    'nombre': 'Dentista',           # Nombre de LA CITA
+    'fecha': '2026-02-10',          # Formato: YYYY-MM-DD
+    'hora_inicio': '10:00',         # Formato: HH:MM
+    'hora_fin': '11:00',            # Formato: HH:MM
+    'descripcion': 'Revisión anual' # Opcional
 }
 ```
 
+**IMPORTANTE:**
+- `'nombre'` = nombre de LA CITA ("Dentista", "Reunión", "Comida")
+- `'hora_inicio'` y `'hora_fin'` = rango completo
+- NO confundir con nombre de usuario (eso va después)
+
 ---
 
-## ✅ Solución
-
-**Archivo:** `src/thdora_data.py`
+## 💻 CÓDIGO COMENTADO (línea por línea)
 
 ```python
+# ===================================
+# LÍNEA 1: Comentario de cabecera
+# ===================================
 """
 THDORA v0.1 - Bot de gestión de citas
-Fecha: 6 febrero 2026
-
-VERSION 0.1: Diccionario MÍNIMO
 """
+# ¿Por qué? Para saber qué hace este archivo
+# Las """ se usan para comentarios largos (docstring)
 
-# Diccionario base
+
+# ===================================
+# LÍNEA 2: Crear el diccionario
+# ===================================
 thdora_data = {
-    'citas': []  # Lista vacía de citas
+    'citas': []
 }
 
+# DESGLOSE:
+# - thdora_data: nombre de la variable (podría ser "datos" o "agenda")
+# - = : asignar valor a la variable
+# - { }: esto indica que es un diccionario
+# - 'citas': clave del diccionario (usamos comillas para texto)
+# - []: lista vacía (todavía no hay citas)
 
-# Zona de pruebas
+
+# ===================================
+# LÍNEA 3: Probar que funciona
+# ===================================
 if __name__ == "__main__":
-    print("🤖 THDORA v0.1 - Diccionario base\n")
-    
-    print("Diccionario inicial:")
     print(thdora_data)
-    print(f"\nNúmero de citas: {len(thdora_data['citas'])}")
-    print("\n✅ Diccionario creado correctamente")
+    
+# ¿Por qué if __name__ == "__main__"?
+# Para ejecutar código solo cuando corremos este archivo directamente
+# (No cuando lo importamos desde otro archivo)
 ```
 
 ---
 
-## 🧪 Testing
+## ✍️ TU TURNO (ejercicio práctico)
+
+### Abre: `ejercicios-practica/ejercicio-01.py`
+
+**Tarea:**
+1. Crea un diccionario llamado `mi_agenda`
+2. Dentro, crea una lista vacía llamada `contactos`
+3. Imprime el diccionario con `print(mi_agenda)`
+4. Imprime cuántos contactos hay con `len(mi_agenda['contactos'])`
+
+**Solución:**
+```python
+mi_agenda = {
+    'contactos': []
+}
+
+print(mi_agenda)
+print(f"Contactos: {len(mi_agenda['contactos'])}")
+
+# Output:
+# {'contactos': []}
+# Contactos: 0
+```
+
+---
+
+## ❓ PREGUNTAS CLAVE (verifica comprensión)
+
+✅ Responde estas preguntas ANTES de continuar:
+
+1. ¿Qué es un diccionario en Python?
+2. ¿Por qué usamos comillas en `'citas'`?
+3. ¿Qué significa `[]`?
+4. ¿Podríamos usar `"agenda"` en vez de `"thdora_data"`?
+5. ¿Cómo agregaremos citas a la lista vacía? (pista: .append())
+6. ¿Por qué `'nombre'` de la cita y no `'titulo'`?
+7. ¿Por qué necesitamos `hora_inicio` Y `hora_fin`?
+
+**Si NO puedes responder → REPITE el ejercicio o PREGUNTA**
+
+---
+
+## ❌ ERRORES COMUNES
+
+### Error 1: Olvidar comillas en la clave
+```python
+❌ thdora_data = {
+    citas: []  # ERROR
+}
+
+✅ thdora_data = {
+    'citas': []  # CORRECTO
+}
+```
+
+### Error 2: Usar () en vez de []
+```python
+❌ thdora_data = {
+    'citas': ()  # Esto es tupla, no lista
+}
+
+✅ thdora_data = {
+    'citas': []  # Lista vacía
+}
+```
+
+### Error 3: Olvidar los dos puntos
+```python
+❌ thdora_data = {
+    'citas' []  # Falta :
+}
+
+✅ thdora_data = {
+    'citas': []  # Correcto
+}
+```
+
+### Error 4: Confundir {} con []
+```python
+❌ thdora_data = [  # Esto es lista, no diccionario
+    'citas': []
+]
+
+✅ thdora_data = {  # Diccionario
+    'citas': []
+}
+```
+
+---
+
+## 🧪 TESTING
+
+### Ejecutar el código:
 
 ```bash
-# Ejecutar desde la carpeta thdora-bot/
+# Opción 1: Practicar
+python ejercicios-practica/ejercicio-01.py
+
+# Opción 2: Archivo real (después de practicar)
 python src/thdora_data.py
 ```
 
-**Output esperado:**
+### Output esperado:
 ```
 🤖 THDORA v0.1 - Diccionario base
 
@@ -122,23 +275,34 @@ Número de citas: 0
 
 ---
 
-## 🎓 ¿Qué aprendiste?
+## 🎓 ¿QUÉ APRENDISTE?
 
 - [x] Crear un diccionario vacío
 - [x] Usar listas dentro de diccionarios
 - [x] Acceder a valores con `diccionario['clave']`
-- [x] Usar `len()` para contar elementos de una lista
+- [x] Usar `len()` para contar elementos
 - [x] Estructura básica de un proyecto Python
 - [x] Bloque `if __name__ == "__main__":` para testing
+- [x] Diferencia entre nombre de cita vs nombre de usuario
+- [x] Por qué usar hora_inicio y hora_fin
 
 ---
 
-## ➡️ Siguiente
+## ➡️ SIGUIENTE PASO
 
-[Ejercicio 2: agregar_cita() →](./02-agregar-cita.md)
+Cuando ENTIENDAS este ejercicio completamente:
+
+→ **Ejercicio 2: agregar_cita()**
+
+Aprenderás:
+- Crear funciones con `def`
+- Parámetros de funciones
+- Método `.append()` para agregar a listas
+- Generar IDs únicos
 
 ---
 
 **Estado:** ✅ Completado  
 **Snapshot:** `src/snapshots/v01_diccionario.py`  
-**Commit:** `✅ Ejercicio 1: Diccionario base THDORA v0.1`
+**Commit:** `✅ Ejercicio 1 completado: Diccionario base`  
+**Tiempo:** 20-30 min
