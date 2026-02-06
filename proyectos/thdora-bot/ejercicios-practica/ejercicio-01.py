@@ -18,17 +18,18 @@ Crear un diccionario llamado 'thdora_data' con una lista vacía de citas.
 # ESCRIBE TU CÓDIGO AQUÍ ↓
 # ==========================================
 
-# TODO: Crear diccionario thdora_data
-
-# TODO: Dentro del diccionario, crear lista vacía 'citas'
-
-# TODO: Imprimir el diccionario para verificar
-
+# Crear diccionario thdora_data
+thdora_data = {
+    'citas': []
+}
 
 # ==========================================
-# ZONA DE TESTING (opcional)
+# ZONA DE TESTING
 # ==========================================
 
 if __name__ == "__main__":
-    # Aquí puedes probar tu código
-    pass
+    print("🤖 THDORA v0.1 - Diccionario base\n")
+    print("Diccionario inicial:")
+    print(thdora_data)
+    print(f"\nNúmero de citas: {len(thdora_data['citas'])}")
+    print("\n✅ Diccionario creado correctamente")

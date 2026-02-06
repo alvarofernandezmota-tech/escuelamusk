@@ -1,56 +1,35 @@
 """
-THDORA v0.1 - Bot de gestión de citas
-Fecha: 6 febrero 2026
-Autor: Álvaro Fernández Mota
+THDORA - Ejercicio 1: Diccionario Base
+Práctica personal
 
-VERSION 0.1: Diccionario MÍNIMO
-- Solo citas
-- Sin categorías (después)
-- Sin usuario (después)
-- Sin JSON (después)
+INSTRUCCIONES:
+1. Lee primero: docs/ejercicios/01-diccionario-base.md
+2. Escribe el código ABAJO (no copies, escribe tú)
+3. Prueba: python ejercicios-practica/ejercicio-01.py
+4. Si funciona Y lo entiendes → copia a src/thdora_data.py
 
-Este es el PUNTO DE PARTIDA.
-Irá creciendo ejercicio por ejercicio.
+OBJETIVO:
+Crear un diccionario llamado 'thdora_data' con una lista vacía de citas.
+
+¡Ánimo! Es tu primer ejercicio Python aplicado.
 """
 
 # ==========================================
-# DICCIONARIO BASE
+# ESCRIBE TU CÓDIGO AQUÍ ↓
 # ==========================================
 
+# Crear diccionario thdora_data
 thdora_data = {
-    'citas': []  # Lista vacía de citas
+    'citas': []
 }
 
 # ==========================================
-# ESTRUCTURA DE UNA CITA (para más adelante)
+# ZONA DE TESTING
 # ==========================================
-"""
-Cuando agregemos citas (Ejercicio 2), tendrán esta estructura:
 
-{
-    'id': 1,                        # Número único
-    'nombre': 'Dentista',           # Nombre de LA CITA (no del usuario)
-    'fecha': '2026-02-10',          # Formato: YYYY-MM-DD
-    'hora_inicio': '10:00',         # Formato: HH:MM
-    'hora_fin': '11:00',            # Formato: HH:MM
-    'descripcion': 'Revisión anual' # Opcional
-}
-
-IMPORTANTE:
-- 'nombre' = nombre de LA CITA (ej: "Dentista", "Reunión", "Comida")
-- 'hora_inicio' y 'hora_fin' = rango completo de tiempo
-- Más adelante: categoría, prioridad, completada, etc.
-"""
-
-
-# ==========================================
-# ZONA DE PRUEBAS
-# ==========================================
 if __name__ == "__main__":
     print("🤖 THDORA v0.1 - Diccionario base\n")
-    
     print("Diccionario inicial:")
     print(thdora_data)
     print(f"\nNúmero de citas: {len(thdora_data['citas'])}")
     print("\n✅ Diccionario creado correctamente")
-    print("\n➡️  Siguiente: Ejercicio 2 - agregar_cita()")
