@@ -1,63 +1,16 @@
 """
 THDORA - Ejercicio 2: agregar_cita()
-Práctica personal
-
-INSTRUCCIONES:
-1. Lee primero: docs/ejercicios/02-agregar-cita.md
-2. Escribe el código ABAJO (no copies, escribe tú)
-3. Prueba: python ejercicios-practica/ejercicio-02.py
-4. Si funciona Y lo entiendes → copia a src/thdora_functions.py
+Práctica personal - COMPLETADO ✅
 
 OBJETIVO:
 Crear función agregar_cita() que añada citas al diccionario.
 
-CONCEPTOS NUEVOS:
+CONCEPTOS PRACTICADOS:
 - Funciones con def
-- Parámetros
+- Parámetros (nombre, fecha, hora_inicio, hora_fin)
 - .append() para añadir a listas
 - return para devolver valores
-- IDs únicos
-
-¡Ánimo! Tu primera función.
-"""
-
-# ==========================================
-# IMPORTAR DATOS
-# ==========================================
-
-# TODO: Importar thdora_data desde el ejercicio 1
-# Pista: from ejercicio_01 import thdora_data
-
-
-# ==========================================
-# FUNCIÓN agregar_cita
-# ==========================================
-"""
-
-    Añade una nueva cita al diccionario thdora_data
-    
-    Parámetros:
-        nombre (str): Nombre de la cita (ej: 'Dentista')
-        fecha (str): Fecha en formato YYYY-MM-DD (ej: '2026-02-10')
-        hora_inicio (str): Hora inicio HH:MM (ej: '10:00')
-        hora_fin (str): Hora fin HH:MM (ej: '11:00')
-        descripcion (str): Descripción opcional (default: '')
-    
-    Returns:
-        dict: La cita creada
-    """
-    
-    # TODO: Crear diccionario nueva_cita con estos campos:
-    # - 'id': número único (usa len(thdora_data['citas']) + 1)
-    # - 'nombre': parámetro nombre
-    # - 'fecha': parámetro fecha
-    # - 'hora_inicio': parámetro hora_inicio
-    # - 'hora_fin': parámetro hora_fin
-    # - 'descripcion': parámetro descripcion
-    
-"""
-THDORA - Ejercicio 2: agregar_cita()
-Práctica personal
+- IDs únicos con len()
 """
 
 # ==========================================
@@ -108,7 +61,12 @@ if __name__ == "__main__":
     cita1 = agregar_cita("Dentista", "2026-02-10", "10:00", "11:00")
     print(f"✅ Cita 1: {cita1}")
     
+    cita2 = agregar_cita("Estudiar Python", "2026-02-11", "15:00", "17:00")
+    print(f"✅ Cita 2: {cita2}")
 
     print(f"\n📊 Total citas: {len(thdora_data['citas'])}")
     print("\nTodas las citas:")
-    print(thdora_data['citas'])
+    for cita in thdora_data['citas']:
+        print(f"  [{cita['id']}] {cita['nombre']} - {cita['fecha']} {cita['hora_inicio']}-{cita['hora_fin']}")
+    
+    print("\n✅ Ejercicio 2 completado correctamente")
