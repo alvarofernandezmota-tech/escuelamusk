@@ -1,17 +1,16 @@
 """
 THDORA - Ejercicio 3: ver_citas()
-Práctica personal
-
-INSTRUCCIONES:
-1. Lee primero: docs/ejercicios/03-ver-citas.md
-2. Escribe el código ABAJO (no copies, escribe tú)
-3. Prueba: python ejercicios-practica/ejercicio-03.py
-4. Si funciona Y lo entiendes → copia función a src/thdora_functions.py
+Práctica personal - COMPLETADO ✅
 
 OBJETIVO:
 Crear función ver_citas() que muestre todas las citas o mensaje si no hay.
 
-¡Ánimo! Ya dominas agregar_cita(), ahora a visualizar.
+CONCEPTOS PRACTICADOS:
+- Verificar lista vacía con len()
+- Bucle for sobre lista de diccionarios
+- Acceso a campos de diccionario
+- Return temprano con return
+- Formato visual con emojis
 """
 
 # ==========================================
@@ -39,7 +38,7 @@ def agregar_cita(nombre, fecha, hora_inicio, hora_fin):
 
 
 # ==========================================
-# ESCRIBE TU CÓDIGO AQUÍ ↓
+# FUNCIÓN ver_citas
 # ==========================================
 
 def ver_citas():
@@ -91,4 +90,4 @@ if __name__ == "__main__":
     # Mostrar todas las citas
     ver_citas()
     
-    print("\n✅ Testing completado")
+    print("\n✅ Testing completado - Ejercicio 3 funciona correctamente")
