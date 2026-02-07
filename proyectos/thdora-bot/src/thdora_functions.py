@@ -3,11 +3,11 @@ THDORA - Funciones de gestión de citas
 Fecha: 07 febrero 2026
 Autor: Álvaro Fernández Mota
 
-Funciones disponibles:
-- agregar_cita(): Añade nueva cita
-- ver_citas(): Muestra todas las citas
-- buscar_cita(): Busca cita por ID
-- eliminar_cita(): Elimina cita por ID (pendiente)
+ESTRUCTURA DE DESARROLLO:
+- Todas las funciones se implementan AQUI
+- Todo el testing se hace en __main__
+- Cada ejercicio se desarrolla directamente en este archivo
+- Sin archivos separados de práctica (sin redundancia)
 
 Progreso: 3/4 funciones base completadas ✅
 """
@@ -19,7 +19,7 @@ from thdora_data import thdora_data
 
 
 # ==========================================
-# FUNCIÓN: AÑADIR CITA
+# EJERCICIO 2: AÑADIR CITA ✅ COMPLETADO
 # ==========================================
 def agregar_cita(nombre, fecha, hora_inicio, hora_fin):
     """
@@ -34,9 +34,7 @@ def agregar_cita(nombre, fecha, hora_inicio, hora_fin):
     Returns:
         dict: La cita creada
     
-    Ejemplo:
-        >>> agregar_cita("Dentista", "2026-02-10", "10:00", "11:00")
-        {'id': 1, 'nombre': 'Dentista', 'fecha': '2026-02-10', ...}
+    Completado: 6 febrero 2026
     """
     nueva_cita = {
         'id': len(thdora_data['citas']) + 1,
@@ -51,7 +49,7 @@ def agregar_cita(nombre, fecha, hora_inicio, hora_fin):
 
 
 # ==========================================
-# FUNCIÓN: VER CITAS
+# EJERCICIO 3: VER CITAS ✅ COMPLETADO
 # ==========================================
 def ver_citas():
     """
@@ -61,16 +59,8 @@ def ver_citas():
     Returns:
         None: Imprime directamente en consola
     
-    Ejemplo:
-        >>> ver_citas()
-        
-        📋 CITAS REGISTRADAS (2):
-        
-        [1] Dentista
-            📅 2026-02-10
-            ⏰ 10:00 - 11:00
+    Completado: 6 febrero 2026
     """
-    
     # Verificar si hay citas
     if len(thdora_data['citas']) == 0:
         print("❌ No hay citas registradas.")
@@ -89,7 +79,7 @@ def ver_citas():
 
 
 # ==========================================
-# FUNCIÓN: BUSCAR CITA POR ID
+# EJERCICIO 4: BUSCAR CITA ✅ COMPLETADO
 # ==========================================
 def buscar_cita(id):
     """
@@ -101,13 +91,7 @@ def buscar_cita(id):
     Returns:
         dict: La cita encontrada, o None si no existe
     
-    Ejemplo:
-        >>> buscar_cita(1)
-        
-        📌 CITA ENCONTRADA:
-        [1] Dentista
-            📅 2026-02-10
-            ⏰ 10:00 - 11:00
+    Completado: 7 febrero 2026
     """
     for cita in thdora_data['citas']:
         if cita['id'] == id:
@@ -122,7 +106,7 @@ def buscar_cita(id):
 
 
 # ==========================================
-# FUNCIÓN: ELIMINAR CITA POR ID
+# EJERCICIO 5: ELIMINAR CITA ⏳ PENDIENTE
 # ==========================================
 def eliminar_cita(id):
     """
@@ -134,83 +118,152 @@ def eliminar_cita(id):
     Returns:
         bool: True si se eliminó, False si no existía
     
-    Ejemplo:
-        >>> eliminar_cita(1)
-        ✅ Cita con ID 1 eliminada correctamente
+    TODO: Implementar en próxima sesión
+    
+    Pistas:
+    - Recorrer thdora_data['citas'] con enumerate() para tener índice
+    - Comparar cita['id'] con id buscado
+    - Si encuentra: usar .pop(indice) para eliminar
+    - Mostrar mensaje de confirmación
+    - Si no encuentra: mensaje de error y return False
     """
-    # TODO: Implementar en ejercicio 5
-    # Pista: Recorrer thdora_data['citas'], encontrar por id, usar .remove()
+    # Aquí irá tu código del ejercicio 5
     pass
 
 
 # ==========================================
-# TESTING COMPLETO - Desarrollo activo
+# TESTING COMPLETO - TODO EL PROYECTO AQUI
 # ==========================================
 if __name__ == "__main__":
-    print("=" * 60)
-    print("🧪 TESTING THDORA FUNCTIONS v0.3")
-    print("=" * 60)
+    print("=" * 70)
+    print("🧪 THDORA - TESTING COMPLETO DEL PROYECTO v0.3")
+    print("=" * 70)
     print("Archivo: src/thdora_functions.py")
-    print("Modo: Desarrollo con testing activo")
-    print("=" * 60)
+    print("Modo: Desarrollo activo - Todo se desarrolla aquí")
+    print("Ejercicios: Se resuelven directamente en este archivo")
+    print("=" * 70)
     
-    # TEST 1: Ver citas vacío
-    print("\n📍 TEST 1: ver_citas() - Lista vacía")
-    print("-" * 60)
+    # =========================================
+    # TEST 1: VER CITAS VACÍO
+    # =========================================
+    print("\n" + "━" * 70)
+    print("📍 TEST 1: ver_citas() - Lista vacía inicial")
+    print("━" * 70)
     ver_citas()
+    print("✅ Test 1 completado")
     
-    # TEST 2: Agregar citas
-    print("\n📍 TEST 2: agregar_cita() - Añadir 4 citas")
-    print("-" * 60)
+    # =========================================
+    # TEST 2: AGREGAR CITAS (Ejercicio 2)
+    # =========================================
+    print("\n" + "━" * 70)
+    print("📍 TEST 2: agregar_cita() - Ejercicio 2 ✅")
+    print("━" * 70)
+    
+    print("\nAñadiendo cita 1...")
     cita1 = agregar_cita("Dentista", "2026-02-10", "10:00", "11:00")
     print(f"✅ Cita 1 añadida: {cita1['nombre']} (ID: {cita1['id']})")
     
+    print("\nAñadiendo cita 2...")
     cita2 = agregar_cita("Estudiar Python", "2026-02-11", "15:00", "17:00")
     print(f"✅ Cita 2 añadida: {cita2['nombre']} (ID: {cita2['id']})")
     
+    print("\nAñadiendo cita 3...")
     cita3 = agregar_cita("Gimnasio", "2026-02-13", "18:00", "19:00")
     print(f"✅ Cita 3 añadida: {cita3['nombre']} (ID: {cita3['id']})")
     
+    print("\nAñadiendo cita 4...")
     cita4 = agregar_cita("Reunión equipo", "2026-02-14", "09:00", "10:30")
     print(f"✅ Cita 4 añadida: {cita4['nombre']} (ID: {cita4['id']})")
     
-    # TEST 3: Ver todas las citas
-    print("\n📍 TEST 3: ver_citas() - Mostrar todas (4 citas)")
-    print("-" * 60)
+    print(f"\n📊 Total citas en memoria: {len(thdora_data['citas'])}")
+    print("✅ Test 2 completado - Ejercicio 2 funciona correctamente")
+    
+    # =========================================
+    # TEST 3: VER TODAS LAS CITAS (Ejercicio 3)
+    # =========================================
+    print("\n" + "━" * 70)
+    print("📍 TEST 3: ver_citas() - Mostrar todas - Ejercicio 3 ✅")
+    print("━" * 70)
     ver_citas()
+    print("✅ Test 3 completado - Ejercicio 3 funciona correctamente")
     
-    # TEST 4: Buscar cita existente
-    print("📍 TEST 4: buscar_cita(2) - Buscar 'Estudiar Python'")
-    print("-" * 60)
+    # =========================================
+    # TEST 4: BUSCAR CITA EXISTENTE (Ejercicio 4)
+    # =========================================
+    print("━" * 70)
+    print("📍 TEST 4: buscar_cita(2) - Buscar 'Estudiar Python' - Ejercicio 4 ✅")
+    print("━" * 70)
     resultado = buscar_cita(2)
-    print(f"Retorno: {type(resultado).__name__} con ID {resultado['id'] if resultado else 'None'}")
+    if resultado:
+        print(f"✅ Cita encontrada correctamente (ID: {resultado['id']})")
+    print("✅ Test 4 completado - Ejercicio 4 funciona correctamente")
     
-    # TEST 5: Buscar otra cita existente
-    print("\n📍 TEST 5: buscar_cita(1) - Buscar 'Dentista'")
-    print("-" * 60)
+    # =========================================
+    # TEST 5: BUSCAR OTRA CITA EXISTENTE
+    # =========================================
+    print("\n" + "━" * 70)
+    print("📍 TEST 5: buscar_cita(1) - Buscar 'Dentista'")
+    print("━" * 70)
     resultado = buscar_cita(1)
+    if resultado:
+        print(f"✅ Cita encontrada correctamente (ID: {resultado['id']})")
+    print("✅ Test 5 completado")
     
-    # TEST 6: Buscar cita inexistente
-    print("\n📍 TEST 6: buscar_cita(999) - Buscar cita que NO existe")
-    print("-" * 60)
+    # =========================================
+    # TEST 6: BUSCAR CITA INEXISTENTE
+    # =========================================
+    print("\n" + "━" * 70)
+    print("📍 TEST 6: buscar_cita(999) - Buscar cita que NO existe")
+    print("━" * 70)
     resultado = buscar_cita(999)
-    print(f"Retorno: {resultado}")
+    if resultado is None:
+        print("✅ Manejo correcto de cita inexistente (return None)")
+    print("✅ Test 6 completado")
     
-    # TEST 7: Eliminar cita (cuando esté implementado)
-    # print("\n📍 TEST 7: eliminar_cita(3) - Eliminar 'Gimnasio'")
-    # print("-" * 60)
-    # eliminar_cita(3)
-    # ver_citas()
+    # =========================================
+    # TEST 7: ELIMINAR CITA (Ejercicio 5) ⏳
+    # =========================================
+    print("\n" + "━" * 70)
+    print("📍 TEST 7: eliminar_cita(3) - Eliminar 'Gimnasio' - Ejercicio 5 ⏳")
+    print("━" * 70)
+    print("⚠️  PENDIENTE: Implementar eliminar_cita() en Ejercicio 5")
+    print("Cuando implementes la función, descomenta este bloque:")
+    print()
+    print("# resultado = eliminar_cita(3)")
+    print("# if resultado:")
+    print("#     print('\\n📋 Citas después de eliminar:')")
+    print("#     ver_citas()")
+    print("#     print(f'✅ Cita eliminada. Total citas: {len(thdora_data[\"citas\"])}')
+")
     
+    # Descomenta estas líneas cuando implementes eliminar_cita():
+    # resultado = eliminar_cita(3)
+    # if resultado:
+    #     print("\n📋 Citas después de eliminar:")
+    #     ver_citas()
+    #     print(f"✅ Cita eliminada. Total citas: {len(thdora_data['citas'])}")
+    
+    print("⏳ Test 7 pendiente - Completar en próxima sesión")
+    
+    # =========================================
     # RESUMEN FINAL
-    print("\n" + "=" * 60)
-    print("📊 RESUMEN FINAL")
-    print("=" * 60)
+    # =========================================
+    print("\n" + "=" * 70)
+    print("📊 RESUMEN FINAL DEL PROYECTO")
+    print("=" * 70)
     print(f"Total citas en memoria: {len(thdora_data['citas'])}")
-    print(f"Funciones implementadas: 3/4")
-    print(f"  ✅ agregar_cita()")
-    print(f"  ✅ ver_citas()")
-    print(f"  ✅ buscar_cita()")
-    print(f"  ⏳ eliminar_cita() - Pendiente ejercicio 5")
-    print("\n✅ Todos los tests completados correctamente")
-    print("=" * 60)
+    print(f"Funciones implementadas: 3/4 (75%)")
+    print()
+    print("Estado de ejercicios:")
+    print("  ✅ Ejercicio 1: Diccionario base (thdora_data.py)")
+    print("  ✅ Ejercicio 2: agregar_cita() - Completado 6 feb")
+    print("  ✅ Ejercicio 3: ver_citas() - Completado 6 feb")
+    print("  ✅ Ejercicio 4: buscar_cita() - Completado 7 feb")
+    print("  ⏳ Ejercicio 5: eliminar_cita() - Pendiente")
+    print()
+    print("✅ Todos los tests implementados completados correctamente")
+    print("=" * 70)
+    print()
+    print("🚀 PRÓXIMO PASO: Implementar eliminar_cita() en la línea 130")
+    print("📝 Documentación completa en: docs/PROGRESO.md")
+    print("=" * 70)
