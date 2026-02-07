@@ -19,6 +19,16 @@ Output: [4, 2]
 """
 
 # Tu código aquí:
+s = [5, 7, 3, 4, 2, 1]
+def get_pair(s):
+    par = []
+    for n in s:
+        if n % 2 == 0:
+            par.append(n)
+    return par
+
+par = get_pair(s)
+print(par)
 
 
 
@@ -44,9 +54,11 @@ Output:
 """
 
 # Tu código aquí:
-
-
-
+def crear_funcion(*args):
+    for i in args:
+        print(i)
+    
+crear_funcion(34, 54, 76, 23)
 
 # Prueba tu función:
 # func1(20, 40, 60)
@@ -60,15 +72,24 @@ Haz un programa que devuelva múltiples valores desde una función.
 Crea la función calculation() de modo que pueda aceptar dos variables 
 y calcular sumas y restas. Además, debe devolver tanto la suma como 
 la resta en una sola llamada.
-
 Input: 40, 10
 Output: (50, 30)
 """
 
 # Tu código aquí:
-
-
-
+def sumar(a, b):
+    return a + b
+def restar(a, b):
+    return a - b
+def  calculadora(num1, num2, operacion):
+    if operacion == 'sumar':
+        return sumar(num1, num2)
+    if operacion == 'restar':
+        return restar(num1, num2)
+resultado1 = calculadora(45, 20, 'sumar')
+resultado2 = calculadora(45, 20, 'restar')
+print(resultado1)
+print(resultado2)
 
 # Prueba tu función:
 # resultado = calculation(40, 10)
