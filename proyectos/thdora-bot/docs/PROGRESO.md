@@ -5,7 +5,7 @@
 **Proyecto:** THDORA - Bot de gestión de citas  
 **Desarrollador:** Álvaro Fernández Mota  
 **Inicio:** 5 febrero 2026  
-**Última actualización:** 7 febrero 2026  
+**Última actualización:** 7 febrero 2026 - 16:25 CET  
 **Estado:** En desarrollo activo  
 
 ---
@@ -157,7 +157,7 @@ def buscar_cita(id):
 
 ### 4. `eliminar_cita(id)` ⏳
 
-**Estado:** Pendiente  
+**Estado:** Preparada - Pendiente implementación  
 **Ejercicio:** 5  
 **Estimación:** 15-20 minutos  
 
@@ -188,7 +188,7 @@ Elimina una cita por su ID del diccionario.
 - Bucles `for` sobre estructuras
 - IDs únicos autogenerados
 
-### Sesión 2 (7 feb 2026):
+### Sesión 2 (7 feb 2026 - Mañana):
 - **print vs return:** Diferencia fundamental (print muestra, return devuelve)
 - **Funciones llamando funciones:** Patrón de funciones auxiliares
 - **`*args`:** Parámetros variables (ejercicio Tema 6)
@@ -197,11 +197,17 @@ Elimina una cita por su ID del diccionario.
 - **Búsqueda en listas:** Patrón de recorrer y comparar
 - **Return temprano:** Salir de función al encontrar resultado
 
+### Sesión 3 (7 feb 2026 - Tarde):
+- **Refactorización:** Eliminar redundancias y duplicados
+- **Arquitectura profesional:** Un solo lugar para código, documentación aparte
+- **Testing centralizado:** Todo en `__main__` durante desarrollo
+- **Gestión Git:** Commits atómicos y mensajes descriptivos
+
 ---
 
 ## 🚧 Dificultades y Soluciones
 
-### Sobrecarga cognitiva (7 feb):
+### Sobrecarga cognitiva (7 feb - mañana):
 **Problema:** Muchos conceptos nuevos en poco tiempo (`*args`, return múltiple, estructura archivos)
 
 **Solución aplicada:**
@@ -219,14 +225,21 @@ Elimina una cita por su ID del diccionario.
 - Usar Input/Output como guía
 - Entender QUÉ hace antes de CÓMO implementar
 
-### Redundancia en ejercicios:
+### Redundancia en ejercicios (7 feb - tarde):
 **Problema:** Archivos separados duplicando código y datos
 
 **Solución profesional:**
+- Eliminada carpeta `ejercicios-practica/` completa
 - Trabajar directamente en archivo madre (`thdora_functions.py`)
 - Testing completo en `__main__`
 - Ejercicios documentados en `PROGRESO.md` en vez de archivos separados
 - Desarrollo ágil y profesional
+
+**Commits realizados:**
+- `🗑️ Eliminar ejercicios-practica redundantes - Todo en thdora_functions.py`
+- `🗑️ Eliminar ejercicio-02.py redundante`
+- `🗑️ Eliminar ejercicio-03.py redundante`
+- `🗑️ Eliminar ejercicio-04.py redundante`
 
 ---
 
@@ -245,7 +258,15 @@ Elimina una cita por su ID del diccionario.
 ### Testing:
 - Testing activo en `__main__` durante desarrollo
 - 6 tests cubren todos los casos (vacío, múltiples citas, búsqueda exitosa/fallida)
+- TEST 7 preparado para Ejercicio 5
 - Ejecución rápida: `python src/thdora_functions.py`
+
+### Arquitectura limpia:
+- **❌ ANTES:** Archivos duplicados en `ejercicios-practica/`
+- **✅ AHORA:** Un solo archivo con funciones + `__main__`
+- Cero redundancia
+- Fácil mantenimiento
+- Profesional
 
 ---
 
@@ -256,7 +277,7 @@ Elimina una cita por su ID del diccionario.
 - [x] agregar_cita()
 - [x] ver_citas()
 - [x] buscar_cita()
-- [ ] eliminar_cita() ⏳
+- [ ] eliminar_cita() ⏳ **PRÓXIMO DOMINGO 08/FEB**
 
 ### Fase 2: Búsquedas Avanzadas
 - [ ] buscar_por_nombre()
@@ -290,13 +311,36 @@ Elimina una cita por su ID del diccionario.
 
 ## 📊 Estadísticas de Desarrollo
 
-**Tiempo invertido:** ~3 horas  
+**Tiempo invertido:** ~5h total  
 **Líneas de código:** ~150 (funciones + testing)  
 **Funciones completadas:** 3  
-**Tests escritos:** 6  
-**Commits:** 10+  
+**Tests escritos:** 6 (+ 1 preparado)  
+**Commits:** 15+  
+**Refactorizaciones:** 1 mayor (eliminación redundancias)
 
 **Ratio aprendizaje/código:** Alto - Enfoque en entender conceptos antes que velocidad
+
+---
+
+## 🎯 Próxima Sesión - Domingo 08/Feb/2026
+
+### Objetivos:
+
+#### Mañana (10:00-14:00):
+1. **Ejercicio 5:** Implementar `eliminar_cita(id)`
+2. Testing exhaustivo TEST 7
+3. Commit y documentación
+
+#### Tarde (15:30-19:00):
+4. **Fase 2 inicio:** Búsquedas avanzadas
+5. Implementar `buscar_por_nombre(nombre)`
+6. Implementar `buscar_por_fecha(fecha)`
+
+#### Noche (20:00-23:00) - Opcional:
+7. Persistencia JSON básica
+8. Menú interactivo simple
+
+**Meta:** Completar Fase 1 (100%) + Iniciar Fase 2
 
 ---
 
@@ -308,8 +352,9 @@ Elimina una cita por su ID del diccionario.
 3. **Iterativo:** Funciones simples primero, complejidad después
 4. **Testing activo:** Verificar cada función inmediatamente
 5. **Documentación:** Registrar dificultades y soluciones
+6. **Refactorización:** Limpiar código y estructura regularmente
 
-**Resultado:** Aprendizaje sólido y sostenible ✅
+**Resultado:** Aprendizaje sólido, profesional y sostenible ✅
 
 ---
 
@@ -319,9 +364,10 @@ Elimina una cita por su ID del diccionario.
 - [Estructura de datos](../src/thdora_data.py)
 - [Ejercicios teóricos](./ejercicios/)
 - [Repositorio](https://github.com/alvarofernandezmota-tech/escuelamusk)
+- [Tracking personal](https://github.com/alvarofernandezmota-tech/personal/blob/main/TRACKING.md)
 
 ---
 
-🔄 **Última actualización:** 7 febrero 2026, 16:25  
+🔄 **Última actualización:** 7 febrero 2026, 16:25 CET  
 📊 **Progreso:** 75% Fase 1 completada  
-🎯 **Próximo hito:** Completar `eliminar_cita()` (Ejercicio 5)
+🎯 **Próximo hito:** Completar `eliminar_cita()` - Domingo 08/Feb mañana
